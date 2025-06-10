@@ -10,9 +10,9 @@
     router
   >
     <!-- Logo区域 -->
-    <div style="height: 60px; line-height: 60px; text-align: center" @click="goToHome">
+    <div style="height: 60px; line-height: 60px; text-align: center">
       <img src="../assets/logo.svg" alt="" style="width: 20px; position: relative; top: 5px; margin-right: 5px" />
-      <b style="color: #fff; cursor: pointer" v-show="logoTextShow">管理后台</b>
+      <b style="color: #fff; cursor: pointer" v-show="logoTextShow" @click="goToHome">管理后台</b>
     </div>
     <!-- 菜单内容 -->
     <template v-if="!loading && menus.length > 0">

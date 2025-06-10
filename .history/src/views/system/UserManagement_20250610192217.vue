@@ -254,7 +254,6 @@ export default {
       dialogTitle: '',
       isEdit: false,
       userForm: {
-        id: null,
         user_id: null,
         user_name: '',
         nick_name: '',
@@ -394,7 +393,6 @@ export default {
       this.dialogTitle = '新增用户'
       this.isEdit = false
       this.userForm = {
-        id: null,
         user_id: null,
         user_name: '',
         nick_name: '',
@@ -415,7 +413,6 @@ export default {
       this.dialogTitle = '编辑用户'
       this.isEdit = true
       this.userForm = {
-        id: row.id,
         user_id: row.user_id,
         user_name: row.user_name,
         nick_name: row.nick_name,

@@ -213,7 +213,6 @@ export default {
       dialogTitle: '',
       isEdit: false,
       deptForm: {
-        id: null,
         dept_id: null,
         parent_id: 0,
         dept_name: '',
@@ -355,7 +354,6 @@ export default {
       this.dialogTitle = '新增部门'
       this.isEdit = false
       this.deptForm = {
-        id: null,
         dept_id: null,
         parent_id: 0,
         dept_name: '',
@@ -375,7 +373,6 @@ export default {
       this.dialogTitle = '新增子部门'
       this.isEdit = false
       this.deptForm = {
-        id: null,
         dept_id: null,
         parent_id: row.dept_id,
         dept_name: '',
@@ -395,7 +392,6 @@ export default {
       this.dialogTitle = '编辑部门'
       this.isEdit = true
       this.deptForm = {
-        id: row.id || row.dept_id,
         dept_id: row.dept_id,
         parent_id: row.parent_id,
         dept_name: row.dept_name,
@@ -477,13 +473,11 @@ export default {
         
         if (this.isEdit) {
           // 编辑部门
-          await this.$http.put(`/sys_dept/${formData.id}`, formData)
+          await this.$http.put(`/sys_dept/${formData.dept_id}`, formData)
           ElMessage.success('编辑成功')
         } else {
           // 新增部门
           delete formData.dept_id
-          // 生成id字段
-          formData.id = formData.dept_id || Date.now()
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_dept', formData)
           ElMessage.success('新增成功')

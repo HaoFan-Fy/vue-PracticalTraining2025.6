@@ -278,7 +278,6 @@ export default {
       dialogTitle: '',
       isEdit: false,
       menuForm: {
-        id: null,
         menu_id: null,
         parent_id: 0,
         menu_name: '',
@@ -439,7 +438,6 @@ export default {
       this.dialogTitle = '新增菜单'
       this.isEdit = false
       this.menuForm = {
-        id: null,
         menu_id: null,
         parent_id: 0,
         menu_name: '',
@@ -463,7 +461,6 @@ export default {
       this.dialogTitle = '新增子菜单'
       this.isEdit = false
       this.menuForm = {
-        id: null,
         menu_id: null,
         parent_id: row.menu_id,
         menu_name: '',
@@ -487,7 +484,6 @@ export default {
       this.dialogTitle = '编辑菜单'
       this.isEdit = true
       this.menuForm = {
-        id: row.id,
         menu_id: row.menu_id,
         parent_id: row.parent_id,
         menu_name: row.menu_name,
@@ -555,12 +551,11 @@ export default {
         
         if (this.isEdit) {
           // 编辑菜单
-          await this.$http.put(`/sys_menu/${formData.id}`, formData)
+          await this.$http.put(`/sys_menu/${formData.menu_id}`, formData)
           ElMessage.success('编辑成功')
         } else {
           // 新增菜单
           delete formData.menu_id
-          formData.id = formData.menu_id || Date.now()
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_menu', formData)
           ElMessage.success('新增成功')

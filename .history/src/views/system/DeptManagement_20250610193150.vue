@@ -482,8 +482,6 @@ export default {
         } else {
           // 新增部门
           delete formData.dept_id
-          // 生成id字段
-          formData.id = formData.dept_id || Date.now()
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_dept', formData)
           ElMessage.success('新增成功')

@@ -254,7 +254,6 @@ export default {
       dialogTitle: '',
       isEdit: false,
       userForm: {
-        id: null,
         user_id: null,
         user_name: '',
         nick_name: '',
@@ -394,7 +393,6 @@ export default {
       this.dialogTitle = '新增用户'
       this.isEdit = false
       this.userForm = {
-        id: null,
         user_id: null,
         user_name: '',
         nick_name: '',
@@ -415,7 +413,6 @@ export default {
       this.dialogTitle = '编辑用户'
       this.isEdit = true
       this.userForm = {
-        id: row.id,
         user_id: row.user_id,
         user_name: row.user_name,
         nick_name: row.nick_name,
@@ -470,7 +467,7 @@ export default {
           }
         )
         
-        await this.$http.put(`/sys_user/${row.id}`, {
+        await this.$http.put(`/sys_user/${row.user_id}`, {
           ...row,
           password: '123456'
         })
@@ -495,17 +492,15 @@ export default {
         
         if (this.isEdit) {
           // 编辑用户
-          await this.$http.put(`/sys_user/${formData.id}`, formData)
+          await this.$http.put(`/sys_user/${formData.user_id}`, formData)
           ElMessage.success('编辑成功')
         } else {
           // 新增用户
-          // 生成新的数字类型 user_id 和 id
+          // 生成新的数字类型 user_id
           const userResponse = await this.$http.get('/sys_user')
           const existingUsers = userResponse.data || []
           const maxUserId = existingUsers.length > 0 ? Math.max(...existingUsers.map(u => u.user_id || 0)) : 0
-          const newId = maxUserId + 1
-          formData.user_id = newId
-          formData.id = newId
+          formData.user_id = maxUserId + 1
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_user', formData)
           ElMessage.success('新增成功')

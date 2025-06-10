@@ -481,7 +481,6 @@ export default {
         } else {
           // 新增角色
           delete formData.role_id
-          formData.id = formData.role_id || Date.now()
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_role', formData)
           ElMessage.success('新增成功')

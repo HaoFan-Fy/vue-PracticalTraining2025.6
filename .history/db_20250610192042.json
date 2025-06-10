@@ -14,8 +14,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "admin",
-      "update_time": "2024-11-17 21:03:56",
-      "id": "100"
+      "update_time": "2024-11-17 21:03:56"
     },
     {
       "dept_id": 101,
@@ -31,8 +30,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "101"
+      "update_time": null
     },
     {
       "dept_id": 102,
@@ -48,8 +46,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "102"
+      "update_time": null
     },
     {
       "dept_id": 103,
@@ -65,8 +62,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "103"
+      "update_time": null
     },
     {
       "dept_id": 104,
@@ -82,8 +78,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "104"
+      "update_time": null
     },
     {
       "dept_id": 105,
@@ -99,8 +94,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "105"
+      "update_time": null
     },
     {
       "dept_id": 106,
@@ -116,8 +110,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "106"
+      "update_time": null
     },
     {
       "dept_id": 107,
@@ -133,8 +126,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "107"
+      "update_time": null
     },
     {
       "dept_id": 108,
@@ -150,8 +142,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "108"
+      "update_time": null
     },
     {
       "dept_id": 109,
@@ -167,8 +158,7 @@
       "create_by": "admin",
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
-      "update_time": null,
-      "id": "109"
+      "update_time": null
     },
     {
       "dept_id": 200,
@@ -184,8 +174,7 @@
       "create_by": "admin",
       "create_time": "2024-11-17 21:04:38",
       "update_by": "",
-      "update_time": null,
-      "id": "200"
+      "update_time": null
     },
     {
       "dept_id": 201,
@@ -201,8 +190,7 @@
       "create_by": "admin",
       "create_time": "2024-11-17 21:05:24",
       "update_by": "",
-      "update_time": null,
-      "id": "201"
+      "update_time": null
     },
     {
       "dept_id": 202,
@@ -218,8 +206,7 @@
       "create_by": "admin",
       "create_time": "2024-11-17 21:05:49",
       "update_by": "",
-      "update_time": null,
-      "id": "202"
+      "update_time": null
     }
   ],
   "sys_menu": [
@@ -243,8 +230,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "系统管理目录",
-      "id": "1"
+      "remark": "系统管理目录"
     },
     {
       "menu_id": 2,
@@ -266,8 +252,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "系统监控目录",
-      "id": "2"
+      "remark": "系统监控目录"
     },
     {
       "menu_id": 3,
@@ -289,8 +274,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "系统工具目录",
-      "id": "3"
+      "remark": "系统工具目录"
     },
     {
       "menu_id": 100,
@@ -312,8 +296,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "用户管理菜单",
-      "id": "100"
+      "remark": "用户管理菜单"
     },
     {
       "menu_id": 101,
@@ -335,8 +318,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "角色管理菜单",
-      "id": "101"
+      "remark": "角色管理菜单"
     },
     {
       "menu_id": 102,
@@ -358,8 +340,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "菜单管理菜单",
-      "id": "102"
+      "remark": "菜单管理菜单"
     },
     {
       "menu_id": 103,
@@ -381,8 +362,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "部门管理菜单",
-      "id": "102"
+      "remark": "部门管理菜单"
     }
   ],
   "sys_role": [
@@ -400,8 +380,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "超级管理员",
-      "id": "1"
+      "remark": "超级管理员"
     },
     {
       "role_id": 2,
@@ -417,8 +396,7 @@
       "create_time": "2024-11-05 20:46:11",
       "update_by": "",
       "update_time": null,
-      "remark": "普通角色",
-      "id": "2"
+      "remark": "普通角色"
     },
     {
       "role_id": 100,
@@ -434,8 +412,7 @@
       "create_time": "2024-11-17 21:02:23",
       "update_by": "admin",
       "update_time": "2024-12-30 21:19:20",
-      "remark": null,
-      "id": "100"
+      "remark": null
     },
     {
       "role_id": 101,
@@ -451,22 +428,12 @@
       "create_time": "2024-12-02 17:12:35",
       "update_by": "admin",
       "update_time": "2024-12-02 18:58:19",
-      "remark": null,
-      "id": "101"
-    },
-    {
-      "id": "34c6",
-      "role_id": 102,
-      "role_name": "test",
-      "role_key": "3",
-      "role_sort": 5,
-      "status": "0",
-      "remark": ""
+      "remark": null
     }
   ],
   "sys_user": [
     {
-      "id": "1",
+      "id": 1,
       "user_id": 1,
       "user_name": "admin",
       "password": "$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2",
@@ -494,7 +461,7 @@
       "follower_count": 1260
     },
     {
-      "id": "2",
+      "id": 2,
       "user_id": 2,
       "user_name": "ry",
       "password": "$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2",
@@ -522,7 +489,7 @@
       "follower_count": 458
     },
     {
-      "id": "17",
+      "id": 17,
       "user_id": 17,
       "user_name": "thomas",
       "password": "$2a$10$JddcA1RwJ2lPnpZVI3Hgz.S9mhpJs3y17TTdqG5UbCWq/ls20u0qq",
@@ -550,134 +517,114 @@
       "follower_count": 0
     },
     {
-      "id": "20",
+      "id": 20,
       "user_id": 20,
       "user_name": "test",
       "nick_name": "test",
       "email": "2109187316@qq.com",
-      "phonenumber": "15099999998",
-      "create_time": "2025-06-10 10:35:22",
+      "phonenumber": "15099999999",
       "dept_id": 100,
       "status": "0",
-      "password": ""
+      "password": "123456",
+      "create_time": "2025-06-10 11:13:03"
     },
     {
-      "id": "21",
+      "id": 21,
       "user_id": 21,
-      "user_name": "wyh",
-      "nick_name": "吴银皓",
-      "email": "2109187316@qq.com",
-      "phonenumber": "15099999999",
-      "dept_id": 103,
+      "user_name": "11",
+      "nick_name": "11",
+      "email": "1111@qq.com",
+      "phonenumber": "15011111111",
+      "dept_id": 100,
       "status": "0",
-      "password": "123456",
-      "create_time": "2025-06-10 11:35:22"
+      "password": "111111",
+      "create_time": "2025-06-10 11:15:51"
     }
   ],
   "sys_user_role": [
     {
       "user_id": 1,
-      "role_id": 1,
-      "id": "7d82"
+      "role_id": 1
     },
     {
       "user_id": 2,
-      "role_id": 2,
-      "id": "c37a"
+      "role_id": 2
     },
     {
       "user_id": 17,
-      "role_id": 101,
-      "id": "ab79"
+      "role_id": 101
     }
   ],
   "sys_role_menu": [
     {
       "role_id": 2,
-      "menu_id": 1,
-      "id": "bda4"
+      "menu_id": 1
     },
     {
       "role_id": 2,
-      "menu_id": 2,
-      "id": "b71f"
+      "menu_id": 2
     },
     {
       "role_id": 2,
-      "menu_id": 3,
-      "id": "8bbd"
+      "menu_id": 3
     },
     {
       "role_id": 2,
-      "menu_id": 100,
-      "id": "7186"
+      "menu_id": 100
     },
     {
       "role_id": 2,
-      "menu_id": 101,
-      "id": "b897"
+      "menu_id": 101
     },
     {
       "role_id": 2,
-      "menu_id": 102,
-      "id": "321c"
+      "menu_id": 102
     },
     {
       "role_id": 2,
-      "menu_id": 103,
-      "id": "ecfe"
+      "menu_id": 103
     },
     {
       "role_id": 100,
-      "menu_id": 1,
-      "id": "04ea"
+      "menu_id": 1
     },
     {
       "role_id": 100,
-      "menu_id": 100,
-      "id": "bf10"
+      "menu_id": 100
     },
     {
       "role_id": 101,
-      "menu_id": 1,
-      "id": "7b20"
+      "menu_id": 1
     },
     {
       "role_id": 101,
-      "menu_id": 100,
-      "id": "f3ca"
+      "menu_id": 100
     },
     {
       "role_id": 101,
-      "menu_id": 101,
-      "id": "aa68"
+      "menu_id": 101
     },
     {
       "role_id": 101,
-      "menu_id": 102,
-      "id": "f3d9"
+      "menu_id": 102
     },
     {
       "role_id": 101,
-      "menu_id": 103,
-      "id": "3edc"
+      "menu_id": 103
     }
   ],
   "sys_role_dept": [
     {
       "role_id": 2,
-      "dept_id": 100,
-      "id": "f58f"
+      "dept_id": 100
     },
     {
       "role_id": 2,
-      "dept_id": 101,
-      "id": "3b76"
+      "dept_id": 101
     },
     {
       "role_id": 2,
-      "dept_id": 105,
-      "id": "519c"
+      "dept_id": 105
     }
   ]
 }

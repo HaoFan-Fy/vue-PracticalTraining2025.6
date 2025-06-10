@@ -560,7 +560,6 @@ export default {
         } else {
           // 新增菜单
           delete formData.menu_id
-          formData.id = formData.menu_id || Date.now()
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_menu', formData)
           ElMessage.success('新增成功')

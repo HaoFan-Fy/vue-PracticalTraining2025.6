@@ -359,7 +359,6 @@ export default {
       this.dialogTitle = '新增角色'
       this.isEdit = false
       this.roleForm = {
-        id: null,
         role_id: null,
         role_name: '',
         role_key: '',
@@ -377,7 +376,6 @@ export default {
       this.dialogTitle = '编辑角色'
       this.isEdit = true
       this.roleForm = {
-        id: row.id,
         role_id: row.role_id,
         role_name: row.role_name,
         role_key: row.role_key,
@@ -481,7 +479,6 @@ export default {
         } else {
           // 新增角色
           delete formData.role_id
-          formData.id = formData.role_id || Date.now()
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_role', formData)
           ElMessage.success('新增成功')
