@@ -1,0 +1,238 @@
+# JSON Server API 使用说明
+
+本项目使用 JSON Server 来模拟后端 API，基于 `web_front_schema.sql` 中的数据库结构和数据生成。
+
+## 🚀 快速开始
+
+### 启动 JSON Server
+
+```bash
+# 方式1: 使用自定义启动脚本（推荐）
+npm run json-server
+
+# 方式2: 使用基础 json-server
+npm run api
+
+# 方式3: 同时启动前端和API服务
+npm run all
+```
+
+### 服务信息
+
+- **API 服务地址**: http://localhost:3000
+- **数据库文件**: `db.json`
+- **配置文件**: `json-server.json`
+
+## 📊 数据表结构
+
+### 主要数据表
+
+| 表名 | 说明 | API 端点 |
+|------|------|----------|
+| sys_user | 用户表 | `/sys_user` 或 `/api/system/user` |
+| sys_role | 角色表 | `/sys_role` 或 `/api/system/role` |
+| sys_menu | 菜单表 | `/sys_menu` 或 `/api/system/menu` |
+| sys_dept | 部门表 | `/sys_dept` 或 `/api/system/dept` |
+| sys_user_role | 用户角色关联表 | `/sys_user_role` 或 `/api/system/user-role` |
+| sys_role_menu | 角色菜单关联表 | `/sys_role_menu` 或 `/api/system/role-menu` |
+| sys_role_dept | 角色部门关联表 | `/sys_role_dept` 或 `/api/system/role-dept` |
+
+## 🔗 API 端点
+
+### 基础 CRUD 操作
+
+```bash
+# 获取所有用户
+GET http://localhost:3000/sys_user
+GET http://localhost:3000/api/system/user
+
+# 获取单个用户
+GET http://localhost:3000/sys_user/1
+
+# 创建用户
+POST http://localhost:3000/sys_user
+Content-Type: application/json
+
+{
+  "user_name": "newuser",
+  "password": "password123",
+  "email": "newuser@example.com",
+  "dept_id": 103
+}
+
+# 更新用户
+PUT http://localhost:3000/sys_user/1
+Content-Type: application/json
+
+{
+  "user_name": "updateduser",
+  "email": "updated@example.com"
+}
+
+# 删除用户
+DELETE http://localhost:3000/sys_user/1
+```
+
+### 查询参数
+
+```bash
+# 分页查询
+GET http://localhost:3000/sys_user?_page=1&_limit=10
+
+# 排序
+GET http://localhost:3000/sys_user?_sort=user_id&_order=desc
+
+# 过滤
+GET http://localhost:3000/sys_user?status=0
+GET http://localhost:3000/sys_user?dept_id=103
+
+# 模糊查询
+GET http://localhost:3000/sys_user?user_name_like=admin
+
+# 关联查询（展开关联数据）
+GET http://localhost:3000/sys_user?_expand=dept
+```
+
+### 自定义认证接口
+
+```bash
+# 用户登录
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+# 获取用户信息
+GET http://localhost:3000/api/user/info
+Authorization: Bearer mock-jwt-token-admin
+```
+
+## 👤 测试账号
+
+| 用户名 | 密码 | 角色 | 说明 |
+|--------|------|------|------|
+| admin | admin123 | 管理员 | 拥有所有权限 |
+| user | user123 | 普通用户 | 基础权限 |
+
+## 📝 数据示例
+
+### 用户数据结构
+
+```json
+{
+  "user_id": 1,
+  "user_name": "admin",
+  "password": "$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2",
+  "email": "user1@example.com",
+  "phonenumber": "1234567890",
+  "dept_id": 103,
+  "status": "0",
+  "create_time": "2024-11-05 20:46:11",
+  "nick_name": "管理员"
+}
+```
+
+### 角色数据结构
+
+```json
+{
+  "role_id": 1,
+  "role_name": "超级管理员",
+  "role_key": "admin",
+  "role_sort": 1,
+  "status": "0",
+  "create_time": "2024-11-05 20:46:11",
+  "remark": "超级管理员"
+}
+```
+
+### 部门数据结构
+
+```json
+{
+  "dept_id": 100,
+  "parent_id": 0,
+  "dept_name": "帝豪娱乐",
+  "order_num": 0,
+  "leader": "阿里克谢.马克西莫维奇",
+  "phone": "15888888888",
+  "email": "ry@qq.com",
+  "status": "0"
+}
+```
+
+## 🛠️ 高级用法
+
+### 关联查询示例
+
+```bash
+# 获取用户及其角色信息
+GET http://localhost:3000/sys_user/1?_embed=sys_user_role
+
+# 获取角色及其菜单权限
+GET http://localhost:3000/sys_role/1?_embed=sys_role_menu
+
+# 获取部门及其子部门
+GET http://localhost:3000/sys_dept?parent_id=100
+```
+
+### 自定义中间件
+
+如需添加更多自定义逻辑，可以修改 `start-json-server.js` 文件：
+
+```javascript
+// 添加自定义中间件
+server.use((req, res, next) => {
+  // 在这里添加你的逻辑
+  console.log('请求:', req.method, req.url)
+  next()
+})
+```
+
+## 🔧 配置说明
+
+### json-server.json 配置
+
+```json
+{
+  "port": 3000,
+  "watch": true,
+  "static": "./public",
+  "delay": 0,
+  "routes": {
+    "/api/*": "/$1"
+  }
+}
+```
+
+### 路由重写
+
+在 `start-json-server.js` 中配置了以下路由重写：
+
+- `/api/system/user` → `/sys_user`
+- `/api/system/role` → `/sys_role`
+- `/api/system/menu` → `/sys_menu`
+- `/api/system/dept` → `/sys_dept`
+
+## 📚 更多资源
+
+- [JSON Server 官方文档](https://github.com/typicode/json-server)
+- [JSON Server 查询语法](https://github.com/typicode/json-server#routes)
+
+## ⚠️ 注意事项
+
+1. 这是一个模拟的后端服务，仅用于开发和测试
+2. 数据存储在 `db.json` 文件中，重启服务不会丢失数据
+3. 密码字段使用了 bcrypt 加密，实际使用时需要相应的解密逻辑
+4. 生产环境请使用真实的后端服务
+
+## 🤝 贡献
+
+如需添加更多 API 端点或修改数据结构，请：
+
+1. 修改 `db.json` 文件添加/修改数据
+2. 在 `start-json-server.js` 中添加自定义路由
+3. 更新本文档说明
