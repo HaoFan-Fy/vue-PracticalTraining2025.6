@@ -589,6 +589,16 @@
       "user_id": 17,
       "role_id": 101,
       "id": "ab79"
+    },
+    {
+      "id": "11b1",
+      "user_id": 20,
+      "role_id": 102
+    },
+    {
+      "id": "5be9",
+      "user_id": 21,
+      "role_id": 2
     }
   ],
   "sys_role_menu": [

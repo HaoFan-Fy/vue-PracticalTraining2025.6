@@ -242,50 +242,6 @@
         </span>
       </template>
     </el-dialog>
-    
-    <!-- 分配角色对话框 -->
-    <el-dialog
-      v-model="roleDialogVisible"
-      title="分配角色"
-      width="500px"
-      @close="handleRoleDialogClose"
-    >
-      <div v-if="currentUser">
-        <p style="margin-bottom: 15px; color: #666;">
-          为用户 <strong>{{ currentUser.user_name }}</strong> ({{ currentUser.nick_name }}) 分配角色
-        </p>
-        
-        <el-checkbox-group v-model="selectedRoles">
-          <el-checkbox
-            v-for="role in roleList"
-            :key="role.role_id"
-            :label="role.role_id"
-            :disabled="role.status === '1'"
-            style="display: block; margin-bottom: 10px;"
-          >
-            <span>{{ role.role_name }}</span>
-            <el-tag
-              v-if="role.status === '1'"
-              type="danger"
-              size="small"
-              style="margin-left: 10px;"
-            >
-              已停用
-            </el-tag>
-            <span v-if="role.remark" style="color: #999; margin-left: 10px; font-size: 12px;">
-              ({{ role.remark }})
-            </span>
-          </el-checkbox>
-        </el-checkbox-group>
-      </div>
-      
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="roleDialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="handleRoleSubmit">确定</el-button>
-        </span>
-      </template>
-    </el-dialog>
   </div>
 </template>
 
@@ -360,19 +316,12 @@ export default {
           { validator: validateConfirmPassword, trigger: 'blur' }
         ]
       },
-      deptList: [],
-      roleList: [],
-      // 分配角色对话框
-      roleDialogVisible: false,
-      currentUser: null,
-      selectedRoles: [],
-      userRoles: []
+      deptList: []
     }
   },
   mounted() {
     this.loadData()
     this.loadDeptList()
-    this.loadRoleList()
   },
   methods: {
     /**
@@ -403,8 +352,6 @@ export default {
         
         // 关联部门信息
         await this.loadDeptInfo()
-        // 关联角色信息
-        await this.loadUserRoles()
       } catch (error) {
         console.error('加载用户数据失败:', error)
         ElMessage.error('加载数据失败')
@@ -624,104 +571,6 @@ export default {
     handleCurrentChange(page) {
       this.pagination.currentPage = page
       this.loadData()
-    },
-    
-    /**
-     * 加载角色列表
-     */
-    async loadRoleList() {
-      try {
-        const response = await this.$http.get('/sys_role')
-        this.roleList = response.data || []
-      } catch (error) {
-        console.error('加载角色列表失败:', error)
-      }
-    },
-    
-    /**
-     * 加载用户角色信息
-     */
-    async loadUserRoles() {
-      try {
-        // 获取用户角色关联数据
-        const userRoleResponse = await this.$http.get('/sys_user_role')
-        const userRoleData = userRoleResponse.data || []
-        
-        // 获取角色数据
-        const roleResponse = await this.$http.get('/sys_role')
-        const roleData = roleResponse.data || []
-        
-        // 为每个用户添加角色信息
-        this.tableData.forEach(user => {
-          const userRoles = userRoleData.filter(ur => ur.user_id === user.user_id)
-          user.roles = userRoles.map(ur => {
-            const role = roleData.find(r => r.role_id === ur.role_id)
-            return role || { role_id: ur.role_id, role_name: '未知角色' }
-          })
-        })
-      } catch (error) {
-        console.error('加载用户角色信息失败:', error)
-      }
-    },
-    
-    /**
-     * 分配角色
-     */
-    async handleAssignRole(row) {
-      this.currentUser = row
-      this.roleDialogVisible = true
-      
-      // 获取用户当前的角色
-      try {
-        const response = await this.$http.get('/sys_user_role')
-        const userRoles = response.data?.filter(ur => ur.user_id === row.user_id) || []
-        this.selectedRoles = userRoles.map(ur => ur.role_id)
-      } catch (error) {
-        console.error('获取用户角色失败:', error)
-        this.selectedRoles = []
-      }
-    },
-    
-    /**
-     * 角色对话框关闭
-     */
-    handleRoleDialogClose() {
-      this.currentUser = null
-      this.selectedRoles = []
-    },
-    
-    /**
-     * 提交角色分配
-     */
-    async handleRoleSubmit() {
-      if (!this.currentUser) return
-      
-      try {
-        const userId = this.currentUser.user_id
-        
-        // 先删除用户的所有角色关联
-        const existingRoles = await this.$http.get('/sys_user_role')
-        const userRoles = existingRoles.data?.filter(ur => ur.user_id === userId) || []
-        
-        for (const userRole of userRoles) {
-          await this.$http.delete(`/sys_user_role/${userRole.id}`)
-        }
-        
-        // 添加新的角色关联
-        for (const roleId of this.selectedRoles) {
-          await this.$http.post('/sys_user_role', {
-            user_id: userId,
-            role_id: roleId
-          })
-        }
-        
-        ElMessage.success('角色分配成功')
-        this.roleDialogVisible = false
-        this.loadData() // 重新加载数据以更新角色显示
-      } catch (error) {
-        console.error('角色分配失败:', error)
-        ElMessage.error('角色分配失败')
-      }
     }
   }
 }
