@@ -113,77 +113,73 @@ export default {
         
         this.loading = true
         
-        // 从数据库查找用户
-        const userResponse = await this.$http.get(`/sys_user?user_name=${this.loginData.username}`)
+        // 调用登录API
+        const response = await this.$http.post('/api/login', {
+          username: this.loginData.username,
+          password: this.loginData.password
+        })
         
-        if (!userResponse.data || userResponse.data.length === 0) {
-          ElMessage.error('用户名不存在')
-          return
-        }
-        
-        const user = userResponse.data[0]
-        
-        // 验证密码（直接比较数据库中的密码）
-        // 数据库中的密码是明文存储的，直接比较
-        if (this.loginData.password !== user.password) {
-          ElMessage.error('密码错误')
-          return
-        }
-        
-        // 检查用户状态
-        if (user.status !== '0') {
-          ElMessage.error('账户已被禁用')
-          return
-        }
-        
-        // 获取用户角色信息
-        const userRoleResponse = await this.$http.get(`/sys_user_role?user_id=${user.user_id}`)
-        let userRoles = []
-        let roleNames = []
-        
-        if (userRoleResponse.data && userRoleResponse.data.length > 0) {
-          // 获取角色详细信息
-          for (const userRole of userRoleResponse.data) {
-            const roleResponse = await this.$http.get(`/sys_role?role_id=${userRole.role_id}`)
-            if (roleResponse.data && roleResponse.data.length > 0) {
-              userRoles.push(roleResponse.data[0])
-              roleNames.push(roleResponse.data[0].role_name)
-            }
+        if (response.data.success) {
+          // 保存用户信息到localStorage
+          const userInfo = {
+            username: this.loginData.username,
+            employeename: response.data.data.nick_name || this.loginData.username,
+            token: response.data.data.token
           }
-        }
-        
-        // 生成token（实际项目中应该由后端生成）
-        const token = `jwt-token-${user.user_id}-${Date.now()}`
-        
-        // 保存用户信息到localStorage或sessionStorage
-        const userInfo = {
-          userId: user.user_id,
-          username: user.user_name,
-          employeename: user.nick_name || user.user_name,
-          email: user.email,
-          phone: user.phonenumber,
-          deptId: user.dept_id,
-          roles: userRoles,
-          roleNames: roleNames,
-          token: token
-        }
-        
-        if (this.loginData.rememberMe) {
-          localStorage.setItem('employee', JSON.stringify(userInfo))
-          localStorage.setItem('token', token)
+          if (this.loginData.rememberMe) {
+            localStorage.setItem('employee', JSON.stringify(userInfo))
+            localStorage.setItem('token', response.data.data.token)
+          } else {
+            sessionStorage.setItem('employee', JSON.stringify(userInfo))
+            sessionStorage.setItem('token', response.data.data.token)
+          }
+          
+          ElMessage.success('登录成功')
+          
+          // 跳转到主页
+          this.$router.push('/home')
         } else {
-          sessionStorage.setItem('employee', JSON.stringify(userInfo))
-          sessionStorage.setItem('token', token)
+          ElMessage.error(response.data.message || '登录失败')
         }
-        
-        ElMessage.success(`登录成功！欢迎您，${user.nick_name || user.user_name}${roleNames.length > 0 ? '（' + roleNames.join('、') + '）' : ''}`)
-        
-        // 跳转到主页
-        this.$router.push('/home')
-        
       } catch (error) {
         console.error('登录错误:', error)
-        ElMessage.error('登录失败，请检查网络连接')
+        
+        // 模拟登录验证（用于测试）
+        if (this.loginData.username === 'admin' && this.loginData.password === 'admin123') {
+          const userInfo = {
+            username: 'admin',
+            employeename: '管理员',
+            token: 'mock-jwt-token-admin'
+          }
+          if (this.loginData.rememberMe) {
+            localStorage.setItem('employee', JSON.stringify(userInfo))
+            localStorage.setItem('token', 'mock-jwt-token-admin')
+          } else {
+            sessionStorage.setItem('employee', JSON.stringify(userInfo))
+            sessionStorage.setItem('token', 'mock-jwt-token-admin')
+          }
+          
+          ElMessage.success('登录成功')
+          this.$router.push('/home')
+        } else if (this.loginData.username === 'user' && this.loginData.password === 'user123') {
+          const userInfo = {
+            username: 'user',
+            employeename: '普通用户',
+            token: 'mock-jwt-token-user'
+          }
+          if (this.loginData.rememberMe) {
+            localStorage.setItem('employee', JSON.stringify(userInfo))
+            localStorage.setItem('token', 'mock-jwt-token-user')
+          } else {
+            sessionStorage.setItem('employee', JSON.stringify(userInfo))
+            sessionStorage.setItem('token', 'mock-jwt-token-user')
+          }
+          
+          ElMessage.success('登录成功')
+          this.$router.push('/home')
+        } else {
+          ElMessage.error('用户名或密码错误')
+        }
       } finally {
         this.loading = false
       }

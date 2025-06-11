@@ -603,69 +603,74 @@
   ],
   "sys_role_menu": [
     {
-      "id": "8814",
-      "role_id": 1,
-      "menu_id": 1
+      "role_id": 2,
+      "menu_id": 1,
+      "id": "bda4"
     },
     {
-      "id": "1ac7",
-      "role_id": 1,
-      "menu_id": 100
+      "role_id": 2,
+      "menu_id": 2,
+      "id": "b71f"
     },
     {
-      "id": "ee7f",
-      "role_id": 1,
-      "menu_id": 101
+      "role_id": 2,
+      "menu_id": 3,
+      "id": "8bbd"
     },
     {
-      "id": "a366",
-      "role_id": 1,
-      "menu_id": 102
+      "role_id": 2,
+      "menu_id": 100,
+      "id": "7186"
     },
     {
-      "id": "8963",
-      "role_id": 1,
-      "menu_id": 103
+      "role_id": 2,
+      "menu_id": 101,
+      "id": "b897"
     },
     {
-      "id": "6201",
-      "role_id": 1,
-      "menu_id": 2
+      "role_id": 2,
+      "menu_id": 102,
+      "id": "321c"
     },
     {
-      "id": "cbbe",
-      "role_id": 1,
-      "menu_id": 3
+      "role_id": 2,
+      "menu_id": 103,
+      "id": "ecfe"
     },
     {
-      "id": "21e8",
       "role_id": 100,
-      "menu_id": 100
+      "menu_id": 1,
+      "id": "04ea"
     },
     {
-      "id": "37cb",
       "role_id": 100,
-      "menu_id": 2
+      "menu_id": 100,
+      "id": "bf10"
     },
     {
-      "id": "5a02",
-      "role_id": 100,
-      "menu_id": 3
-    },
-    {
-      "id": "1420",
-      "role_id": 100,
-      "menu_id": 1
-    },
-    {
-      "id": "b17e",
       "role_id": 101,
-      "menu_id": 100
+      "menu_id": 1,
+      "id": "7b20"
     },
     {
-      "id": "4a48",
       "role_id": 101,
-      "menu_id": 1
+      "menu_id": 100,
+      "id": "f3ca"
+    },
+    {
+      "role_id": 101,
+      "menu_id": 101,
+      "id": "aa68"
+    },
+    {
+      "role_id": 101,
+      "menu_id": 102,
+      "id": "f3d9"
+    },
+    {
+      "role_id": 101,
+      "menu_id": 103,
+      "id": "3edc"
     }
   ],
   "sys_role_dept": [
