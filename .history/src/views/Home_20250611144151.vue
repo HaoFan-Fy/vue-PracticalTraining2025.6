@@ -121,19 +121,19 @@
           <div class="quick-actions">
             <el-button v-if="hasPermission('system:user:list')" type="primary" @click="goToUserManagement">
               <el-icon><User /></el-icon>
-              {{ $t('sidebar.userManagement') }}
+              用户管理
             </el-button>
             <el-button v-if="hasPermission('system:role:list')" type="success" @click="goToRoleManagement">
               <el-icon><UserFilled /></el-icon>
-              {{ $t('sidebar.roleManagement') }}
+              角色管理
             </el-button>
             <el-button v-if="hasPermission('system:menu:list')" type="warning" @click="goToMenuManagement">
               <el-icon><Menu /></el-icon>
-              {{ $t('sidebar.menuManagement') }}
+              菜单管理
             </el-button>
             <el-button v-if="hasPermission('system:dept:list')" type="info" @click="goToDeptManagement">
               <el-icon><OfficeBuilding /></el-icon>
-              {{ $t('sidebar.deptManagement') }}
+              部门管理
             </el-button>
           </div>
         </el-card>

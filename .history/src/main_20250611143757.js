@@ -54,6 +54,5 @@ app.config.globalProperties.$http = axios
 app.use(createPinia())
 app.use(router)
 app.use(ElementPlus)
-app.use(i18n)
 
 app.mount('#app')

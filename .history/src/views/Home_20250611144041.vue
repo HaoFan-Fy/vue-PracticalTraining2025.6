@@ -15,7 +15,7 @@
               </el-icon>
               <div class="stat-info">
                 <div class="stat-number">{{ userCount }}</div>
-                <div class="stat-label">{{ $t('home.userCount') }}</div>
+                <div class="stat-label">用户总数</div>
               </div>
             </div>
           </el-col>
@@ -26,7 +26,7 @@
               </el-icon>
               <div class="stat-info">
                 <div class="stat-number">{{ roleCount }}</div>
-                <div class="stat-label">{{ $t('home.roleCount') }}</div>
+                <div class="stat-label">角色总数</div>
               </div>
             </div>
           </el-col>
@@ -37,7 +37,7 @@
               </el-icon>
               <div class="stat-info">
                 <div class="stat-number">{{ menuCount }}</div>
-                <div class="stat-label">{{ $t('home.menuCount') }}</div>
+                <div class="stat-label">菜单总数</div>
               </div>
             </div>
           </el-col>
@@ -48,7 +48,7 @@
               </el-icon>
               <div class="stat-info">
                 <div class="stat-number">{{ deptCount }}</div>
-                <div class="stat-label">{{ $t('home.deptCount') }}</div>
+                <div class="stat-label">部门总数</div>
               </div>
             </div>
           </el-col>
@@ -61,7 +61,7 @@
         <el-card>
           <template #header>
             <div class="card-header">
-              <span>{{ $t('home.userStatistics') }}</span>
+              <span>用户统计图表</span>
             </div>
           </template>
           <div ref="userChart" class="chart-container"></div>
@@ -71,7 +71,7 @@
         <el-card>
           <template #header>
             <div class="card-header">
-              <span>{{ $t('home.deptDistribution') }}</span>
+              <span>部门分布</span>
             </div>
           </template>
           <div ref="deptChart" class="chart-container"></div>
@@ -84,7 +84,7 @@
         <el-card>
           <template #header>
             <div class="card-header">
-              <span>{{ $t('home.systemInfo') }}</span>
+              <span>系统信息</span>
             </div>
           </template>
           <div class="system-info">
@@ -115,25 +115,25 @@
         <el-card>
           <template #header>
             <div class="card-header">
-              <span>{{ $t('home.quickActions') }}</span>
+              <span>快速操作</span>
             </div>
           </template>
           <div class="quick-actions">
             <el-button v-if="hasPermission('system:user:list')" type="primary" @click="goToUserManagement">
               <el-icon><User /></el-icon>
-              {{ $t('sidebar.userManagement') }}
+              用户管理
             </el-button>
             <el-button v-if="hasPermission('system:role:list')" type="success" @click="goToRoleManagement">
               <el-icon><UserFilled /></el-icon>
-              {{ $t('sidebar.roleManagement') }}
+              角色管理
             </el-button>
             <el-button v-if="hasPermission('system:menu:list')" type="warning" @click="goToMenuManagement">
               <el-icon><Menu /></el-icon>
-              {{ $t('sidebar.menuManagement') }}
+              菜单管理
             </el-button>
             <el-button v-if="hasPermission('system:dept:list')" type="info" @click="goToDeptManagement">
               <el-icon><OfficeBuilding /></el-icon>
-              {{ $t('sidebar.deptManagement') }}
+              部门管理
             </el-button>
           </div>
         </el-card>

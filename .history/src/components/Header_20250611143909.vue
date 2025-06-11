@@ -88,11 +88,6 @@ export default {
     this.updateTime();
     // 每秒更新时间
     this.timer = setInterval(this.updateTime, 1000);
-    
-    // 初始化语言设置
-    const savedLang = localStorage.getItem('language') || 'zh';
-    this.$i18n.locale = savedLang;
-    this.langValue = savedLang === 'en';
   },
   beforeUnmount() {
     if (this.timer) {
@@ -161,9 +156,9 @@ export default {
      * 退出登录
      */
     logout() {
-      this.$confirm(this.$t('messages.confirmLogout'), this.$t('common.warning'), {
-        confirmButtonText: this.$t('common.confirm'),
-        cancelButtonText: this.$t('common.cancel'),
+      this.$confirm('确定要退出登录吗？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         // 清除本地存储的用户信息
@@ -176,12 +171,12 @@ export default {
         sessionStorage.removeItem('token');
         sessionStorage.removeItem('menus');
         
-        this.$message.success(this.$t('messages.logoutSuccess'));
+        this.$message.success('退出登录成功');
         
         // 跳转到登录页面
         this.$router.push('/login');
       }).catch(() => {
-        this.$message.info(this.$t('messages.logoutCancelled'));
+        this.$message.info('已取消退出');
       });
     }
   }

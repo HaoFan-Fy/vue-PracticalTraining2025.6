@@ -12,7 +12,7 @@
     <!-- Logo区域 -->
     <div style="height: 60px; line-height: 60px; text-align: center" @click="goToHome">
       <img src="../assets/logo.svg" alt="" style="width: 20px; position: relative; top: 5px; margin-right: 5px" />
-      <b style="color: #fff; cursor: pointer" v-show="logoTextShow">后台管理系统</b>
+      <b style="color: #fff; cursor: pointer" v-show="logoTextShow">{{ $t('sidebar.dashboard') }}</b>
     </div>
     <!-- 菜单内容 -->
     <template v-if="!loading && menus.length > 0">
@@ -183,7 +183,7 @@ export default {
      */
     getLocalMenuData() {
       return [
-        { menu_id: 1, menu_name: '后台管理系统', path: '/home', icon: 'HomeFilled', parent_id: 0, menu_type: 'C' },
+        { menu_id: 1, menu_name: '管理系统', path: '/home', icon: 'HomeFilled', parent_id: 0, menu_type: 'C' },
         { menu_id: 2, menu_name: '系统管理', path: '/system', icon: 'Setting', parent_id: 0, menu_type: 'M' },
         { menu_id: 21, menu_name: '用户管理', path: '/system/user', icon: 'User', parent_id: 2, menu_type: 'C' },
         { menu_id: 22, menu_name: '角色管理', path: '/system/role', icon: 'UserFilled', parent_id: 2, menu_type: 'C' },

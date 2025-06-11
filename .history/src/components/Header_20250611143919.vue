@@ -88,11 +88,6 @@ export default {
     this.updateTime();
     // 每秒更新时间
     this.timer = setInterval(this.updateTime, 1000);
-    
-    // 初始化语言设置
-    const savedLang = localStorage.getItem('language') || 'zh';
-    this.$i18n.locale = savedLang;
-    this.langValue = savedLang === 'en';
   },
   beforeUnmount() {
     if (this.timer) {

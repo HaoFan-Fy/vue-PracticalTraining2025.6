@@ -52,13 +52,13 @@
       <template #dropdown>
         <el-dropdown-menu style="padding-left: 8px; width: 100px; text-align: center">
           <el-dropdown-item style="font-size: 14px; padding: 5px 0">
-            <span @click="person">{{ $t('header.personalCenter') }}</span>
+            <span @click="person">个人中心</span>
           </el-dropdown-item>
           <el-dropdown-item style="font-size: 14px; padding: 5px 0">
-            <span @click="updatePass">{{ $t('header.changePassword') }}</span>
+            <span @click="updatePass">修改密码</span>
           </el-dropdown-item>
           <el-dropdown-item style="font-size: 14px; padding: 5px 0">
-            <span @click="logout">{{ $t('header.logout') }}</span>
+            <span @click="logout">退出登录</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -88,11 +88,6 @@ export default {
     this.updateTime();
     // 每秒更新时间
     this.timer = setInterval(this.updateTime, 1000);
-    
-    // 初始化语言设置
-    const savedLang = localStorage.getItem('language') || 'zh';
-    this.$i18n.locale = savedLang;
-    this.langValue = savedLang === 'en';
   },
   beforeUnmount() {
     if (this.timer) {
@@ -121,11 +116,8 @@ export default {
     switchLang(value) {
       const lang = value ? 'en' : 'zh';
       console.log('切换语言到:', lang);
-      // 切换i18n语言
-      this.$i18n.locale = lang;
-      // 保存语言设置到本地存储
-      localStorage.setItem('language', lang);
-      this.$message.success(this.$t('messages.languageSwitched'));
+      // 这里可以集成国际化功能
+      this.$message.success(`语言已切换为${value ? '英文' : '中文'}`);
     },
 
     /**
@@ -135,9 +127,9 @@ export default {
       if (screenfull.isEnabled) {
         screenfull.toggle();
         const isFullscreen = screenfull.isFullscreen;
-        this.$message.success(isFullscreen ? this.$t('messages.fullScreenEntered') : this.$t('messages.fullScreenExited'));
+        this.$message.success(isFullscreen ? '已进入全屏模式' : '已退出全屏模式');
       } else {
-        this.$message.warning(this.$t('messages.browserNotSupported'));
+        this.$message.warning('您的浏览器不支持全屏功能');
       }
     },
 
@@ -145,7 +137,7 @@ export default {
      * 个人中心
      */
     person() {
-      this.$message.info(this.$t('messages.personalCenterDeveloping'));
+      this.$message.info('个人中心功能开发中...');
       // 这里可以跳转到个人中心页面
       // this.$router.push('/profile');
     },
@@ -161,9 +153,9 @@ export default {
      * 退出登录
      */
     logout() {
-      this.$confirm(this.$t('messages.confirmLogout'), this.$t('common.warning'), {
-        confirmButtonText: this.$t('common.confirm'),
-        cancelButtonText: this.$t('common.cancel'),
+      this.$confirm('确定要退出登录吗？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         // 清除本地存储的用户信息
@@ -176,12 +168,12 @@ export default {
         sessionStorage.removeItem('token');
         sessionStorage.removeItem('menus');
         
-        this.$message.success(this.$t('messages.logoutSuccess'));
+        this.$message.success('退出登录成功');
         
         // 跳转到登录页面
         this.$router.push('/login');
       }).catch(() => {
-        this.$message.info(this.$t('messages.logoutCancelled'));
+        this.$message.info('已取消退出');
       });
     }
   }
