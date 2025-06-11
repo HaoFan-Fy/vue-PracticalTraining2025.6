@@ -70,7 +70,7 @@
         <el-table-column label="操作" width="200" fixed="right">
           <template #default="scope">
             <el-button
-              v-if="hasPermission('system:role:edit')"
+              v-if="hasRole('admin')"
               type="primary"
               size="small"
               @click="handleEdit(scope.row)"
@@ -78,7 +78,7 @@
               编辑
             </el-button>
             <el-button
-              v-if="hasPermission('system:role:edit')"
+              v-if="hasRole('admin')"
               type="warning"
               size="small"
               @click="handlePermission(scope.row)"
@@ -86,7 +86,7 @@
               权限
             </el-button>
             <el-button
-              v-if="hasPermission('system:role:delete')"
+              v-if="hasRole('admin')"
               type="danger"
               size="small"
               @click="handleDelete(scope.row)"

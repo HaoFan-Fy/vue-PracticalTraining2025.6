@@ -4,7 +4,7 @@
       <template #header>
         <div class="card-header">
           <span>菜单管理</span>
-          <el-button v-if="hasPermission('system:menu:add')" type="primary" @click="handleAdd">
+          <el-button v-if="hasRole('admin') || hasRole('teacher')" type="primary" @click="handleAdd">
             <el-icon><Plus /></el-icon>
             新增菜单
           </el-button>
@@ -90,7 +90,6 @@
         <el-table-column label="操作" width="200" fixed="right">
           <template #default="scope">
             <el-button
-              v-if="hasPermission('system:menu:edit')"
               type="primary"
               size="small"
               @click="handleEdit(scope.row)"
@@ -98,15 +97,14 @@
               编辑
             </el-button>
             <el-button
-              v-if="hasPermission('system:menu:add') && scope.row.menu_type !== 'F'"
               type="success"
               size="small"
               @click="handleAddChild(scope.row)"
+              v-if="scope.row.menu_type !== 'F'"
             >
               新增
             </el-button>
             <el-button
-              v-if="hasPermission('system:menu:delete')"
               type="danger"
               size="small"
               @click="handleDelete(scope.row)"

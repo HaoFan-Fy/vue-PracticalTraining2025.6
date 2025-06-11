@@ -570,8 +570,9 @@
       "phonenumber": "15099999999",
       "dept_id": 103,
       "status": "0",
-      "password": "123456",
-      "create_time": "2025-06-10 11:35:22"
+      "password": "Wyh123",
+      "create_time": "2025-06-10 11:35:22",
+      "update_time": "2025-06-11 06:13:04"
     }
   ],
   "sys_user_role": [

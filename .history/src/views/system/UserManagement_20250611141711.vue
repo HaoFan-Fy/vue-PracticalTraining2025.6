@@ -4,7 +4,7 @@
       <template #header>
         <div class="card-header">
           <span>用户管理</span>
-          <el-button v-if="hasPermission('system:user:add')" type="primary" @click="handleAdd">
+          <el-button v-if="hasRole('admin')" type="primary" @click="handleAdd">
             <el-icon><Plus /></el-icon>
             新增用户
           </el-button>
@@ -87,7 +87,6 @@
         <el-table-column label="操作" width="280" fixed="right">
           <template #default="scope">
             <el-button
-              v-if="hasPermission('system:user:edit')"
               type="primary"
               size="small"
               @click="handleEdit(scope.row)"
@@ -95,15 +94,13 @@
               编辑
             </el-button>
             <el-button
-              v-if="hasPermission('system:user:edit')"
-              type="warning"
+              type="success"
               size="small"
               @click="handleAssignRole(scope.row)"
             >
               分配角色
             </el-button>
             <el-button
-              v-if="hasPermission('system:user:delete')"
               type="danger"
               size="small"
               @click="handleDelete(scope.row)"
@@ -111,8 +108,7 @@
               删除
             </el-button>
             <el-button
-              v-if="hasPermission('system:user:edit')"
-              type="info"
+              type="warning"
               size="small"
               @click="handleResetPassword(scope.row)"
             >

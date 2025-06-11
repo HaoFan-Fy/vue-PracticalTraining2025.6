@@ -8,7 +8,7 @@
       </template>
       <div class="welcome-content">
         <el-row :gutter="20">
-          <el-col :span="6" v-if="hasPermission('system:user:list')">
+          <el-col :span="6" v-if="hasRole('admin') || hasRole('common')">
             <div class="stat-item">
               <el-icon class="stat-icon" color="#409EFF">
                 <User />
@@ -19,7 +19,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="6" v-if="hasPermission('system:role:list')">
+          <el-col :span="6" v-if="hasRole('admin')">
             <div class="stat-item">
               <el-icon class="stat-icon" color="#67C23A">
                 <UserFilled />
@@ -30,7 +30,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="6" v-if="hasPermission('system:menu:list')">
+          <el-col :span="6" v-if="hasRole('admin') || hasRole('teacher')">
             <div class="stat-item">
               <el-icon class="stat-icon" color="#E6A23C">
                 <Menu />
@@ -41,7 +41,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="6" v-if="hasPermission('system:dept:list')">
+          <el-col :span="6" v-if="hasRole('admin') || hasRole('common')">
             <div class="stat-item">
               <el-icon class="stat-icon" color="#F56C6C">
                 <OfficeBuilding />

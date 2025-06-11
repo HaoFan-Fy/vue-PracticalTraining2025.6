@@ -104,7 +104,7 @@ router.beforeEach((to, from, next) => {
   
   // 如果访问需要认证的页面，但未登录，则跳转到登录页
   // 排除登录页、注册页和修改密码页
-  if (to.path !== '/login' && to.path !== '/register' && to.path !== '/change-password' && to.path !== '/login-change-password' && !token) {
+  if (to.path !== '/login' && to.path !== '/register' && to.path !== '/change-password' && !token) {
     next('/login')
     return
   }

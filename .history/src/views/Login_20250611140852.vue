@@ -54,7 +54,7 @@
           <el-link type="primary" @click="forgotPassword">忘记密码？</el-link>
           <span class="separator">| </span>
           <el-link type="primary" @click="goToChangePassword">修改密码</el-link>
-          <span class="separator"> | </span>
+          <span class="separator">| </span>
           <el-link type="primary" @click="goToRegister">立即注册</el-link>
         </div>
       </div>

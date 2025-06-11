@@ -4,7 +4,7 @@
       <template #header>
         <div class="card-header">
           <span>角色管理</span>
-          <el-button v-if="hasPermission('system:role:add')" type="primary" @click="handleAdd">
+          <el-button type="primary" @click="handleAdd">
             <el-icon><Plus /></el-icon>
             新增角色
           </el-button>
@@ -70,7 +70,6 @@
         <el-table-column label="操作" width="200" fixed="right">
           <template #default="scope">
             <el-button
-              v-if="hasPermission('system:role:edit')"
               type="primary"
               size="small"
               @click="handleEdit(scope.row)"
@@ -78,7 +77,6 @@
               编辑
             </el-button>
             <el-button
-              v-if="hasPermission('system:role:edit')"
               type="warning"
               size="small"
               @click="handlePermission(scope.row)"
@@ -86,7 +84,6 @@
               权限
             </el-button>
             <el-button
-              v-if="hasPermission('system:role:delete')"
               type="danger"
               size="small"
               @click="handleDelete(scope.row)"

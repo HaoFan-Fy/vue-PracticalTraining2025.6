@@ -4,7 +4,6 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import ChangePassword from '@/views/ChangePassword.vue'
-import LoginChangePassword from '@/views/LoginChangePassword.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,11 +17,6 @@ const router = createRouter({
       path: '/register',
       name: 'Register',
       component: Register
-    },
-    {
-      path: '/login-change-password',
-      name: 'LoginChangePassword',
-      component: LoginChangePassword
     },
     {
       path: '/',
@@ -104,7 +98,7 @@ router.beforeEach((to, from, next) => {
   
   // 如果访问需要认证的页面，但未登录，则跳转到登录页
   // 排除登录页、注册页和修改密码页
-  if (to.path !== '/login' && to.path !== '/register' && to.path !== '/change-password' && to.path !== '/login-change-password' && !token) {
+  if (to.path !== '/login' && to.path !== '/register' && to.path !== '/change-password' && !token) {
     next('/login')
     return
   }
