@@ -173,17 +173,13 @@
         <!-- 销售趋势图 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.salesTrend') }}</h3>
-          <div class="chart-container">
-            <canvas ref="salesChart"></canvas>
-          </div>
+          <div ref="salesChart" class="chart-container"></div>
         </div>
         
         <!-- 收入支出对比图 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.revenueExpense') }}</h3>
-          <div class="chart-container">
-            <canvas ref="revenueChart"></canvas>
-          </div>
+          <div ref="revenueChart" class="chart-container"></div>
         </div>
       </div>
 
@@ -191,17 +187,13 @@
         <!-- 产品销售分布 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.productSales') }}</h3>
-          <div class="chart-container">
-            <canvas ref="productChart"></canvas>
-          </div>
+          <div ref="productChart" class="chart-container"></div>
         </div>
         
         <!-- 客户地区分布 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.customerRegion') }}</h3>
-          <div class="chart-container">
-            <canvas ref="regionChart"></canvas>
-          </div>
+          <div ref="regionChart" class="chart-container"></div>
         </div>
       </div>
     </div>
@@ -221,22 +213,13 @@ import {
   LineElement,
   BarElement,
   ArcElement,
-  LineController,
-  BarController,
-  DoughnutController,
   Title,
   Tooltip,
   Legend,
   Filler
 } from 'chart.js'
 import { tailwindConfig, hexToRGB, generateRandomData, generateDateLabels } from '@/utils/Utils'
-import {
-  salesTrendData,
-  revenueExpenseData,
-  productSalesData,
-  customerRegionData,
-  keyMetrics
-} from '@/data/businessData'
+import businessDataSource from '@/data/businessData'
 
 import { User, UserFilled, Menu, OfficeBuilding } from '@element-plus/icons-vue'
 
@@ -248,9 +231,6 @@ ChartJS.register(
   LineElement,
   BarElement,
   ArcElement,
-  LineController,
-  BarController,
-  DoughnutController,
   Title,
   Tooltip,
   Legend,
@@ -513,50 +493,92 @@ export default {
       try {
         // 模拟从API获取业务数据
         // 实际项目中这里应该调用真实的API
-        console.log('正在加载企业数据分析演示数据...')
+        const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
         
-        // 使用导入的演示数据源
+        // 销售趋势数据 - 模拟真实的季节性波动
+        const salesTrendData = [2800000, 2650000, 3200000, 3450000, 3800000, 4200000, 4500000, 4300000, 3900000, 3600000, 3300000, 4800000]
         this.businessData.salesData = {
-          ...salesTrendData,
+          labels: months,
           datasets: [{
-            ...salesTrendData.datasets[0],
+            label: '销售额',
+            data: salesTrendData,
             borderColor: tailwindConfig().theme.colors.blue[500],
-            backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.1)`
+            backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.1)`,
+            tension: 0.4,
+            fill: true
           }]
         }
 
+        // 收入支出对比数据 - 更真实的财务数据
+        const revenueData = [3200000, 2980000, 3650000, 3890000, 4200000, 4650000, 4980000, 4750000, 4300000, 3950000, 3650000, 5200000]
+        const expenseData = [2100000, 1950000, 2300000, 2450000, 2650000, 2900000, 3100000, 2980000, 2700000, 2500000, 2300000, 3200000]
         this.businessData.revenueData = {
-          ...revenueExpenseData,
+          labels: months,
           datasets: [
             {
-              ...revenueExpenseData.datasets[0],
+              label: '收入',
+              data: revenueData,
               backgroundColor: tailwindConfig().theme.colors.green[500]
             },
             {
-              ...revenueExpenseData.datasets[1],
+              label: '支出',
+              data: expenseData,
               backgroundColor: tailwindConfig().theme.colors.red[500]
             }
           ]
         }
 
-        // 直接使用演示数据源的产品和地区数据
-        this.businessData.productData = productSalesData
-        this.businessData.regionData = customerRegionData
+        // 产品销售分布数据 - 具体的产品名称和销售占比
+        this.businessData.productData = {
+          labels: ['智能手机', '笔记本电脑', '平板电脑', '智能手表', '无线耳机', '智能音箱'],
+          datasets: [{
+            data: [35, 28, 15, 12, 7, 3],
+            backgroundColor: [
+              '#3B82F6', // 蓝色
+              '#10B981', // 绿色
+              '#F59E0B', // 黄色
+              '#8B5CF6', // 紫色
+              '#EF4444', // 红色
+              '#6B7280'  // 灰色
+            ],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        }
+
+        // 客户地区分布数据 - 更详细的地区客户数据
+        this.businessData.regionData = {
+          labels: ['华东地区', '华南地区', '华北地区', '华中地区', '西南地区', '西北地区', '东北地区'],
+          datasets: [{
+            label: '客户数量',
+            data: [1850, 1420, 1680, 980, 750, 520, 680],
+            backgroundColor: [
+              'rgba(59, 130, 246, 0.8)',   // 蓝色
+              'rgba(16, 185, 129, 0.8)',   // 绿色
+              'rgba(245, 158, 11, 0.8)',   // 黄色
+              'rgba(139, 92, 246, 0.8)',   // 紫色
+              'rgba(239, 68, 68, 0.8)',    // 红色
+              'rgba(107, 114, 128, 0.8)',  // 灰色
+              'rgba(236, 72, 153, 0.8)'    // 粉色
+            ],
+            borderColor: [
+              'rgb(59, 130, 246)',
+              'rgb(16, 185, 129)',
+              'rgb(245, 158, 11)',
+              'rgb(139, 92, 246)',
+              'rgb(239, 68, 68)',
+              'rgb(107, 114, 128)',
+              'rgb(236, 72, 153)'
+            ],
+            borderWidth: 1
+          }]
+        }
 
         // 更新关键指标数据
-        this.businessData.totalRevenue = keyMetrics.totalRevenue
-        this.businessData.totalOrders = keyMetrics.totalOrders
-        this.businessData.totalCustomers = keyMetrics.totalCustomers
-        this.businessData.totalExpenses = keyMetrics.totalExpenses
-        
-        console.log('企业数据分析演示数据加载完成:', {
-          销售数据: this.businessData.salesData.labels.length,
-          收入数据: this.businessData.revenueData.labels.length,
-          产品数据: this.businessData.productData.labels.length,
-          地区数据: this.businessData.regionData.labels.length,
-          总收入: this.formatNumber(this.businessData.totalRevenue),
-          总订单: this.formatNumber(this.businessData.totalOrders)
-        })
+        this.businessData.totalRevenue = 4800000  // 当月收入
+        this.businessData.totalOrders = 2850      // 当月订单数
+        this.businessData.totalCustomers = 12500  // 总客户数
+        this.businessData.totalExpenses = 3200000 // 当月支出
         
       } catch (error) {
         console.warn('无法获取业务数据:', error)

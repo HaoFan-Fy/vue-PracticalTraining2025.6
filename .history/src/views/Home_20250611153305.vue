@@ -221,9 +221,6 @@ import {
   LineElement,
   BarElement,
   ArcElement,
-  LineController,
-  BarController,
-  DoughnutController,
   Title,
   Tooltip,
   Legend,
@@ -248,9 +245,6 @@ ChartJS.register(
   LineElement,
   BarElement,
   ArcElement,
-  LineController,
-  BarController,
-  DoughnutController,
   Title,
   Tooltip,
   Legend,
@@ -517,43 +511,42 @@ export default {
         
         // 使用导入的演示数据源
         this.businessData.salesData = {
-          ...salesTrendData,
+          ...businessDataSource.salesTrendData,
           datasets: [{
-            ...salesTrendData.datasets[0],
+            ...businessDataSource.salesTrendData.datasets[0],
             borderColor: tailwindConfig().theme.colors.blue[500],
             backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.1)`
           }]
         }
 
         this.businessData.revenueData = {
-          ...revenueExpenseData,
+          ...businessDataSource.revenueExpenseData,
           datasets: [
             {
-              ...revenueExpenseData.datasets[0],
+              ...businessDataSource.revenueExpenseData.datasets[0],
               backgroundColor: tailwindConfig().theme.colors.green[500]
             },
             {
-              ...revenueExpenseData.datasets[1],
+              ...businessDataSource.revenueExpenseData.datasets[1],
               backgroundColor: tailwindConfig().theme.colors.red[500]
             }
           ]
         }
 
         // 直接使用演示数据源的产品和地区数据
-        this.businessData.productData = productSalesData
-        this.businessData.regionData = customerRegionData
+        this.businessData.productData = businessDataSource.productSalesData
+        this.businessData.regionData = businessDataSource.customerRegionData
 
         // 更新关键指标数据
-        this.businessData.totalRevenue = keyMetrics.totalRevenue
-        this.businessData.totalOrders = keyMetrics.totalOrders
-        this.businessData.totalCustomers = keyMetrics.totalCustomers
-        this.businessData.totalExpenses = keyMetrics.totalExpenses
+        this.businessData.totalRevenue = businessDataSource.keyMetrics.totalRevenue
+        this.businessData.totalOrders = businessDataSource.keyMetrics.totalOrders
+        this.businessData.totalCustomers = businessDataSource.keyMetrics.totalCustomers
+        this.businessData.totalExpenses = businessDataSource.keyMetrics.totalExpenses
         
         console.log('企业数据分析演示数据加载完成:', {
-          销售数据: this.businessData.salesData.labels.length,
-          收入数据: this.businessData.revenueData.labels.length,
-          产品数据: this.businessData.productData.labels.length,
-          地区数据: this.businessData.regionData.labels.length,
+          产品数量: businessDataSource.productDetails.length,
+          地区数量: businessDataSource.regionDetails.length,
+          销售团队: businessDataSource.salesTeamData.length,
           总收入: this.formatNumber(this.businessData.totalRevenue),
           总订单: this.formatNumber(this.businessData.totalOrders)
         })

@@ -173,17 +173,13 @@
         <!-- 销售趋势图 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.salesTrend') }}</h3>
-          <div class="chart-container">
-            <canvas ref="salesChart"></canvas>
-          </div>
+          <div ref="salesChart" class="chart-container"></div>
         </div>
         
         <!-- 收入支出对比图 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.revenueExpense') }}</h3>
-          <div class="chart-container">
-            <canvas ref="revenueChart"></canvas>
-          </div>
+          <div ref="revenueChart" class="chart-container"></div>
         </div>
       </div>
 
@@ -191,17 +187,13 @@
         <!-- 产品销售分布 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.productSales') }}</h3>
-          <div class="chart-container">
-            <canvas ref="productChart"></canvas>
-          </div>
+          <div ref="productChart" class="chart-container"></div>
         </div>
         
         <!-- 客户地区分布 -->
         <div class="dashboard-card">
           <h3>{{ $t('home.customerRegion') }}</h3>
-          <div class="chart-container">
-            <canvas ref="regionChart"></canvas>
-          </div>
+          <div ref="regionChart" class="chart-container"></div>
         </div>
       </div>
     </div>
@@ -221,22 +213,12 @@ import {
   LineElement,
   BarElement,
   ArcElement,
-  LineController,
-  BarController,
-  DoughnutController,
   Title,
   Tooltip,
   Legend,
   Filler
 } from 'chart.js'
 import { tailwindConfig, hexToRGB, generateRandomData, generateDateLabels } from '@/utils/Utils'
-import {
-  salesTrendData,
-  revenueExpenseData,
-  productSalesData,
-  customerRegionData,
-  keyMetrics
-} from '@/data/businessData'
 
 import { User, UserFilled, Menu, OfficeBuilding } from '@element-plus/icons-vue'
 
@@ -248,9 +230,6 @@ ChartJS.register(
   LineElement,
   BarElement,
   ArcElement,
-  LineController,
-  BarController,
-  DoughnutController,
   Title,
   Tooltip,
   Legend,
@@ -274,31 +253,13 @@ export default {
       currentUser: '管理员',
       loginTime: '',
       userChart: null,
-      deptChart: null,
-      // 新增的业务分析图表实例
-      salesChart: null,
-      revenueChart: null,
-      productChart: null,
-      regionChart: null,
-      // 业务数据
-      businessData: {
-        totalRevenue: 4800000,   // 当月总收入：480万
-        totalOrders: 2850,       // 当月总订单数：2850单
-        totalCustomers: 12500,   // 总客户数：1.25万
-        totalExpenses: 3200000,  // 当月总支出：320万
-        salesData: [],           // 销售趋势数据
-        revenueData: [],         // 收入支出对比数据
-        productData: [],         // 产品销售分布数据
-        regionData: []           // 客户地区分布数据
-      }
+      deptChart: null
     }
   },
   async mounted() {
     await this.loadStatistics()
     this.loadUserInfo()
-    this.loadBusinessData()
     this.initCharts()
-    this.initBusinessCharts()
   },
   beforeUnmount() {
     // 销毁图表实例
@@ -307,19 +268,6 @@ export default {
     }
     if (this.deptChart) {
       this.deptChart.dispose()
-    }
-    // 销毁业务分析图表实例
-    if (this.salesChart) {
-      this.salesChart.destroy()
-    }
-    if (this.revenueChart) {
-      this.revenueChart.destroy()
-    }
-    if (this.productChart) {
-      this.productChart.destroy()
-    }
-    if (this.regionChart) {
-      this.regionChart.destroy()
     }
   },
   methods: {
@@ -504,254 +452,6 @@ export default {
      */
     goToDeptManagement() {
       this.$router.push('/system/dept')
-    },
-
-    /**
-     * 加载业务数据
-     */
-    async loadBusinessData() {
-      try {
-        // 模拟从API获取业务数据
-        // 实际项目中这里应该调用真实的API
-        console.log('正在加载企业数据分析演示数据...')
-        
-        // 使用导入的演示数据源
-        this.businessData.salesData = {
-          ...salesTrendData,
-          datasets: [{
-            ...salesTrendData.datasets[0],
-            borderColor: tailwindConfig().theme.colors.blue[500],
-            backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.1)`
-          }]
-        }
-
-        this.businessData.revenueData = {
-          ...revenueExpenseData,
-          datasets: [
-            {
-              ...revenueExpenseData.datasets[0],
-              backgroundColor: tailwindConfig().theme.colors.green[500]
-            },
-            {
-              ...revenueExpenseData.datasets[1],
-              backgroundColor: tailwindConfig().theme.colors.red[500]
-            }
-          ]
-        }
-
-        // 直接使用演示数据源的产品和地区数据
-        this.businessData.productData = productSalesData
-        this.businessData.regionData = customerRegionData
-
-        // 更新关键指标数据
-        this.businessData.totalRevenue = keyMetrics.totalRevenue
-        this.businessData.totalOrders = keyMetrics.totalOrders
-        this.businessData.totalCustomers = keyMetrics.totalCustomers
-        this.businessData.totalExpenses = keyMetrics.totalExpenses
-        
-        console.log('企业数据分析演示数据加载完成:', {
-          销售数据: this.businessData.salesData.labels.length,
-          收入数据: this.businessData.revenueData.labels.length,
-          产品数据: this.businessData.productData.labels.length,
-          地区数据: this.businessData.regionData.labels.length,
-          总收入: this.formatNumber(this.businessData.totalRevenue),
-          总订单: this.formatNumber(this.businessData.totalOrders)
-        })
-        
-      } catch (error) {
-        console.warn('无法获取业务数据:', error)
-        // 使用默认数据
-        this.setDefaultBusinessData()
-      }
-    },
-
-    /**
-     * 设置默认业务数据
-     */
-    setDefaultBusinessData() {
-      const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-      
-      this.businessData.salesData = {
-        labels: months,
-        datasets: [{
-          label: '销售额',
-          data: generateRandomData(12, 2000000, 5000000),
-          borderColor: '#3B82F6',
-          backgroundColor: 'rgba(59, 130, 246, 0.1)',
-          tension: 0.4,
-          fill: true
-        }]
-      }
-
-      this.businessData.revenueData = {
-        labels: months,
-        datasets: [
-          {
-            label: '收入',
-            data: generateRandomData(12, 2500000, 5500000),
-            backgroundColor: '#10B981'
-          },
-          {
-            label: '支出',
-            data: generateRandomData(12, 1500000, 3500000),
-            backgroundColor: '#EF4444'
-          }
-        ]
-      }
-
-      this.businessData.productData = {
-        labels: ['智能手机', '笔记本电脑', '平板电脑', '智能手表', '无线耳机', '智能音箱'],
-        datasets: [{
-          data: [35, 28, 15, 12, 7, 3],
-          backgroundColor: ['#3B82F6', '#10B981', '#F59E0B', '#8B5CF6', '#EF4444', '#6B7280']
-        }]
-      }
-
-      this.businessData.regionData = {
-        labels: ['华东地区', '华南地区', '华北地区', '华中地区', '西南地区', '西北地区', '东北地区'],
-        datasets: [{
-          label: '客户数量',
-          data: generateRandomData(7, 500, 2000),
-          backgroundColor: 'rgba(59, 130, 246, 0.8)',
-          borderColor: 'rgb(59, 130, 246)',
-          borderWidth: 1
-        }]
-      }
-    },
-
-    /**
-     * 格式化数字显示
-     */
-    formatNumber(num) {
-      if (num >= 10000) {
-        return (num / 10000).toFixed(1) + '万'
-      }
-      return num.toLocaleString()
-    },
-
-    /**
-     * 初始化业务分析图表
-     */
-    initBusinessCharts() {
-      this.$nextTick(() => {
-        this.initSalesChart()
-        this.initRevenueChart()
-        this.initProductChart()
-        this.initRegionChart()
-      })
-    },
-
-    /**
-     * 初始化销售趋势图
-     */
-    initSalesChart() {
-      if (!this.$refs.salesChart) return
-      
-      const ctx = this.$refs.salesChart.getContext('2d')
-      this.salesChart = new ChartJS(ctx, {
-        type: 'line',
-        data: this.businessData.salesData,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false
-            }
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                callback: function(value) {
-                  return '¥' + (value / 10000).toFixed(0) + '万'
-                }
-              }
-            }
-          }
-        }
-      })
-    },
-
-    /**
-     * 初始化收入支出对比图
-     */
-    initRevenueChart() {
-      if (!this.$refs.revenueChart) return
-      
-      const ctx = this.$refs.revenueChart.getContext('2d')
-      this.revenueChart = new ChartJS(ctx, {
-        type: 'bar',
-        data: this.businessData.revenueData,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'top'
-            }
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                callback: function(value) {
-                  return '¥' + (value / 10000).toFixed(0) + '万'
-                }
-              }
-            }
-          }
-        }
-      })
-    },
-
-    /**
-     * 初始化产品销售分布图
-     */
-    initProductChart() {
-      if (!this.$refs.productChart) return
-      
-      const ctx = this.$refs.productChart.getContext('2d')
-      this.productChart = new ChartJS(ctx, {
-        type: 'doughnut',
-        data: this.businessData.productData,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }
-      })
-    },
-
-    /**
-     * 初始化客户地区分布图
-     */
-    initRegionChart() {
-      if (!this.$refs.regionChart) return
-      
-      const ctx = this.$refs.regionChart.getContext('2d')
-      this.regionChart = new ChartJS(ctx, {
-        type: 'bar',
-        data: this.businessData.regionData,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false
-            }
-          },
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      })
     }
   }
 }
