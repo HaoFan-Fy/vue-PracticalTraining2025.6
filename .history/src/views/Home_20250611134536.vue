@@ -119,19 +119,19 @@
             </div>
           </template>
           <div class="quick-actions">
-            <el-button v-if="hasRole('admin') || hasRole('common')" type="primary" @click="goToUserManagement">
+            <el-button type="primary" @click="goToUserManagement">
               <el-icon><User /></el-icon>
               用户管理
             </el-button>
-            <el-button v-if="hasRole('admin')" type="success" @click="goToRoleManagement">
+            <el-button type="success" @click="goToRoleManagement">
               <el-icon><UserFilled /></el-icon>
               角色管理
             </el-button>
-            <el-button v-if="hasRole('admin') || hasRole('teacher')" type="warning" @click="goToMenuManagement">
+            <el-button type="warning" @click="goToMenuManagement">
               <el-icon><Menu /></el-icon>
               菜单管理
             </el-button>
-            <el-button v-if="hasRole('admin') || hasRole('common')" type="info" @click="goToDeptManagement">
+            <el-button type="info" @click="goToDeptManagement">
               <el-icon><OfficeBuilding /></el-icon>
               部门管理
             </el-button>
@@ -146,12 +146,10 @@
 import axios from 'axios'
 import * as echarts from 'echarts'
 import dayjs from 'dayjs'
-import permissionMixin from '@/mixins/permission'
 
 import { User, UserFilled, Menu, OfficeBuilding } from '@element-plus/icons-vue'
 export default {
   name: 'Home',
-  mixins: [permissionMixin],
   components: {
     User,
     UserFilled,

@@ -419,6 +419,7 @@ export default {
      */
     async handlePermission(row) {
       this.currentRole = row
+      this.permissionDialogVisible = true
       
       // 加载角色已有权限
       try {
@@ -429,16 +430,6 @@ export default {
         console.error('加载角色权限失败:', error)
         this.checkedMenuIds = []
       }
-      
-      // 打开对话框
-      this.permissionDialogVisible = true
-      
-      // 等待DOM更新后设置选中状态
-      this.$nextTick(() => {
-        if (this.$refs.permissionTree) {
-          this.$refs.permissionTree.setCheckedKeys(this.checkedMenuIds)
-        }
-      })
     },
     
     /**

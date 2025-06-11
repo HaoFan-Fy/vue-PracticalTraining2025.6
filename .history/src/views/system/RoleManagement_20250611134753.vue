@@ -320,7 +320,7 @@ export default {
       
       // 构建树结构
       menuData.forEach(item => {
-        if (item.parent_id === 0 || item.parent_id === null) {
+        if (item.parent_id === 0) {
           tree.push(map[item.menu_id])
         } else {
           if (map[item.parent_id]) {
@@ -419,6 +419,7 @@ export default {
      */
     async handlePermission(row) {
       this.currentRole = row
+      this.permissionDialogVisible = true
       
       // 加载角色已有权限
       try {
@@ -429,16 +430,6 @@ export default {
         console.error('加载角色权限失败:', error)
         this.checkedMenuIds = []
       }
-      
-      // 打开对话框
-      this.permissionDialogVisible = true
-      
-      // 等待DOM更新后设置选中状态
-      this.$nextTick(() => {
-        if (this.$refs.permissionTree) {
-          this.$refs.permissionTree.setCheckedKeys(this.checkedMenuIds)
-        }
-      })
     },
     
     /**
@@ -493,13 +484,8 @@ export default {
           ElMessage.success('编辑成功')
         } else {
           // 新增角色
-          // 生成新的角色ID
-          const response = await this.$http.get('/sys_role')
-          const existingRoles = response.data || []
-          const maxRoleId = existingRoles.length > 0 ? Math.max(...existingRoles.map(r => r.role_id || 0)) : 0
-          
-          formData.role_id = maxRoleId + 1
-          formData.id = Date.now().toString()
+          delete formData.role_id
+          formData.id = formData.role_id || Date.now()
           formData.create_time = new Date().toISOString().slice(0, 19).replace('T', ' ')
           await this.$http.post('/sys_role', formData)
           ElMessage.success('新增成功')

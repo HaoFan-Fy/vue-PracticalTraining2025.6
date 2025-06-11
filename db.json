@@ -638,32 +638,32 @@
       "menu_id": 3
     },
     {
-      "id": "21e8",
-      "role_id": 100,
-      "menu_id": 100
+      "id": "a819",
+      "role_id": 102,
+      "menu_id": 3
     },
     {
-      "id": "37cb",
+      "id": "w8f7",
+      "role_id": 2,
+      "menu_id": 2
+    },
+    {
+      "id": "fr5t",
       "role_id": 100,
       "menu_id": 2
     },
     {
-      "id": "5a02",
-      "role_id": 100,
-      "menu_id": 3
-    },
-    {
-      "id": "1420",
-      "role_id": 100,
-      "menu_id": 1
-    },
-    {
-      "id": "b17e",
+      "id": "mnwx",
       "role_id": 101,
       "menu_id": 100
     },
     {
-      "id": "4a48",
+      "id": "0wpb",
+      "role_id": 101,
+      "menu_id": 2
+    },
+    {
+      "id": "tged",
       "role_id": 101,
       "menu_id": 1
     }
