@@ -1,0 +1,237 @@
+<svg width="1200" height="920" xmlns="http://www.w3.org/2000/svg">
+  <title>Vue 3 + Element Plus 后台管理系统架构图</title>
+  
+  <defs>
+    <!-- 渐变色定义 -->
+    <linearGradient id="frontendGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#409EFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#66b1ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="businessGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E6A23C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0c78a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#909399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b3b7bc;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="#f5f7fa"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#303133">Vue 3 后台管理系统架构图</text>
+  
+  <!-- 前端展示层 -->
+  <g id="frontend-layer">
+    <rect x="50" y="80" width="1100" height="160" rx="10" fill="url(#frontendGradient)" filter="url(#shadow)"/>
+    <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">前端展示层</text> (Vue 3 + Element Plus)</text>
+    
+    <!-- 前端组件 -->
+    <rect x="80" y="130" width="160" height="80" rx="8" fill="white" fill-opacity="0.95"/>
+    <text x="160" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">用户界面</text>
+    <text x="160" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 登录页面</text>
+    <text x="160" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 主页面</text>
+    <text x="160" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">User Interface</text>
+    
+    <rect x="260" y="130" width="160" height="80" rx="8" fill="white" fill-opacity="0.95"/>
+    <text x="340" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">系统管理</text>
+    <text x="340" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 用户管理</text>
+    <text x="340" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 角色管理</text>
+    <text x="340" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">System Management</text>
+    
+    <rect x="440" y="130" width="160" height="80" rx="8" fill="white" fill-opacity="0.95"/>
+    <text x="520" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">权限控制</text>
+    <text x="520" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 菜单管理</text>
+    <text x="520" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 部门管理</text>
+    <text x="520" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Access Control</text>
+    
+    <rect x="620" y="130" width="160" height="80" rx="8" fill="white" fill-opacity="0.95"/>
+    <text x="700" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">数据展示</text>
+    <text x="700" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 图表组件</text>
+    <text x="700" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 数据表格</text>
+    <text x="700" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Data Display</text>
+    
+    <rect x="800" y="130" width="160" height="80" rx="8" fill="white" fill-opacity="0.95"/>
+    <text x="880" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">国际化</text>
+    <text x="880" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 多语言</text>
+    <text x="880" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 语言切换</text>
+    <text x="880" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Internationalization</text>
+    
+    <rect x="980" y="130" width="160" height="80" rx="8" fill="white" fill-opacity="0.95"/>
+    <text x="1060" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">响应式设计</text>
+    <text x="1060" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 移动端适配</text>
+    <text x="1060" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 屏幕适配</text>
+    <text x="1060" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Responsive Design</text>
+  </g>
+  
+  <!-- 核心功能层 -->
+  <g id="core-layer">
+    <rect x="50" y="230" width="1100" height="200" rx="10" fill="#E6A23C" stroke="#d19e00" stroke-width="2"/>
+    <text x="600" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">核心业务层 (RBAC权限模型)</text>
+    
+    <!-- 核心功能模块 -->
+    <rect x="80" y="280" width="200" height="120" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="180" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">用户管理</text>
+    <text x="180" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 用户信息维护</text>
+    <text x="180" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 角色分配</text>
+    <text x="180" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 状态管理</text>
+    <text x="180" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 密码管理</text>
+    <text x="180" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">User Management</text>
+    
+    <rect x="300" y="280" width="200" height="120" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="400" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">角色管理</text>
+    <text x="400" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 角色定义</text>
+    <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 权限分配</text>
+    <text x="400" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 菜单权限</text>
+    <text x="400" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 数据权限</text>
+    <text x="400" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Role Management</text>
+    
+    <rect x="520" y="280" width="200" height="120" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="620" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">菜单管理</text>
+    <text x="620" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 树形结构</text>
+    <text x="620" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 动态路由</text>
+    <text x="620" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 权限控制</text>
+    <text x="620" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 按钮权限</text>
+    <text x="620" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Menu Management</text>
+    
+    <rect x="740" y="280" width="200" height="120" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="840" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">部门管理</text>
+    <text x="840" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 组织架构</text>
+    <text x="840" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 层级管理</text>
+    <text x="840" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 人员分配</text>
+    <text x="840" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 数据权限</text>
+    <text x="840" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Dept Management</text>
+    
+    <rect x="960" y="280" width="160" height="120" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="1040" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#303133">企业数据分析</text>
+    <text x="1040" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 销售趋势</text>
+    <text x="1040" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 收支对比</text>
+    <text x="1040" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 产品分布</text>
+    <text x="1040" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#606266">• 客户分析</text>
+    <text x="1040" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#909399">Business Analytics</text>
+  </g>
+  
+  <!-- 技术支撑层 -->
+  <g id="tech-layer">
+    <rect x="50" y="460" width="1100" height="140" rx="10" fill="#909399" stroke="#787c82" stroke-width="2"/>
+    <text x="600" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">技术支撑层</text>
+    
+    <!-- 技术组件 -->
+    <rect x="80" y="510" width="140" height="70" rx="5" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="150" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">状态管理</text>
+    <text x="150" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">Pinia Store</text>
+    <text x="150" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">响应式数据</text>
+    <text x="150" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#909399">State Management</text>
+    
+    <rect x="240" y="510" width="140" height="70" rx="5" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="310" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">路由系统</text>
+    <text x="310" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">Vue Router 4</text>
+    <text x="310" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">动态路由</text>
+    <text x="310" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#909399">Router System</text>
+    
+    <rect x="400" y="510" width="140" height="70" rx="5" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="470" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">HTTP客户端</text>
+    <text x="470" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">Axios</text>
+    <text x="470" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">API调用</text>
+    <text x="470" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#909399">HTTP Client</text>
+    
+    <rect x="560" y="510" width="140" height="70" rx="5" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="630" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">图表组件</text>
+    <text x="630" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">Chart.js + ECharts</text>
+    <text x="630" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">数据可视化</text>
+    <text x="630" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#909399">Chart Components</text>
+    
+    <rect x="720" y="510" width="140" height="70" rx="5" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="790" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">UI组件库</text>
+    <text x="790" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">Element Plus</text>
+    <text x="790" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">组件系统</text>
+    <text x="790" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#909399">UI Components</text>
+    
+    <rect x="880" y="510" width="140" height="70" rx="5" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="950" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">工具库</text>
+    <text x="950" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">Lodash + Day.js</text>
+    <text x="950" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">实用工具</text>
+    <text x="950" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#909399">Utility Libraries</text>
+    
+    <rect x="1040" y="510" width="100" height="70" rx="5" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="1090" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">构建工具</text>
+    <text x="1090" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">Vite</text>
+    <text x="1090" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#606266">热重载</text>
+    <text x="1090" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#909399">Build Tool</text>
+  </g>
+  
+  <!-- 数据层 -->
+  <g id="data-layer">
+    <rect x="50" y="630" width="1100" height="100" rx="10" fill="#F56C6C" stroke="#e85656" stroke-width="2"/>
+    <text x="600" y="660" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">数据服务层 (JSON Server Mock API)</text>
+    
+    <!-- 数据表 -->
+    <rect x="100" y="680" width="120" height="35" rx="3" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="160" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#303133">sys_user</text>
+    
+    <rect x="240" y="680" width="120" height="35" rx="3" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="300" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#303133">sys_role</text>
+    
+    <rect x="380" y="680" width="120" height="35" rx="3" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="440" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#303133">sys_menu</text>
+    
+    <rect x="520" y="680" width="120" height="35" rx="3" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="580" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#303133">sys_dept</text>
+    
+    <rect x="660" y="680" width="140" height="35" rx="3" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="730" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#303133">sys_user_role</text>
+    
+    <rect x="820" y="680" width="140" height="35" rx="3" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="890" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#303133">sys_role_menu</text>
+    
+    <rect x="980" y="680" width="140" height="35" rx="3" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="1050" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#303133">business_data</text>
+  </g>
+  
+  <!-- 连接线 -->
+  <g id="connections" stroke="#909399" stroke-width="2" fill="none" opacity="0.6">
+    <!-- 前端到核心层 -->
+    <line x1="140" y1="180" x2="180" y2="280"/>
+    <line x1="280" y1="180" x2="400" y2="280"/>
+    <line x1="420" y1="180" x2="620" y2="280"/>
+    <line x1="560" y1="180" x2="1040" y2="280"/>
+    <line x1="840" y1="180" x2="840" y2="280"/>
+    
+    <!-- 核心层到技术层 -->
+    <line x1="180" y1="400" x2="150" y2="510"/>
+    <line x1="400" y1="400" x2="310" y2="510"/>
+    <line x1="620" y1="400" x2="470" y2="510"/>
+    <line x1="840" y1="400" x2="790" y2="510"/>
+    <line x1="1040" y1="400" x2="630" y2="510"/>
+    
+    <!-- 技术层到数据层 -->
+    <line x1="470" y1="580" x2="600" y2="630"/>
+  </g>
+  
+  <!-- 图例 -->
+  <g id="legend">
+    <rect x="50" y="820" width="450" height="80" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <text x="275" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#303133">技术架构图例</text>
+    <text x="120" y="770" font-family="Arial, sans-serif" font-size="11" fill="#606266">Vue 3 + Vite + Element Plus + Pinia + Vue Router + Chart.js + ECharts</text>
+    
+    <rect x="520" y="750" width="200" height="40" rx="5" fill="white" stroke="#dcdfe6"/>
+    <text x="530" y="770" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">架构模式：</text>
+    <text x="600" y="770" font-family="Arial, sans-serif" font-size="11" fill="#606266">RBAC权限模型</text>
+    
+    <rect x="740" y="750" width="200" height="40" rx="5" fill="white" stroke="#dcdfe6"/>
+    <text x="750" y="770" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">特色功能：</text>
+    <text x="820" y="770" font-family="Arial, sans-serif" font-size="11" fill="#606266">国际化 + 数据分析</text>
+  </g>
+  
+  <!-- 版本信息 -->
+  <text x="1150" y="790" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#909399">v1.5.0</text>
+</svg>

@@ -1,0 +1,170 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 简化的样式定义，提高转换兼容性 -->
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="#f5f7fa"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#303133">Vue 管理后台系统布局图</text>
+  
+  <!-- 技术栈标识 -->
+  <rect x="450" y="60" width="300" height="25" rx="12" fill="#e8f4fd" stroke="#409eff"/>
+  <text x="600" y="77" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#409eff">Vue 3 + Element Plus + Vite + Vue Router + ECharts</text>
+  
+  <!-- 侧边导航 -->
+  <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#303133">侧边导航</text>
+  
+  <!-- 侧边栏 -->
+  <rect x="50" y="150" width="200" height="500" fill="#ffffff" stroke="#e4e7ed" stroke-width="1" rx="8"/>
+  
+  <!-- 侧边栏菜单项 -->
+  <g id="sidebar-menu">
+    <!-- 后台管理系统 -->
+    <rect x="80" y="170" width="120" height="30" rx="4" fill="#409eff"/>
+    <text x="140" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">后台管理系统</text>
+    
+    <!-- 系统管理 -->
+    <rect x="80" y="210" width="120" height="30" rx="4" fill="#f5f7fa" stroke="#dcdfe6"/>
+    <text x="140" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#606266">系统管理</text>
+    
+    <!-- 用户管理 -->
+    <rect x="90" y="250" width="100" height="25" rx="4" fill="#f0f9ff" stroke="#409eff"/>
+    <text x="140" y="267" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#409eff">用户管理</text>
+    
+    <!-- 角色管理 -->
+    <rect x="90" y="280" width="100" height="25" rx="4" fill="#f0f9ff" stroke="#409eff"/>
+    <text x="140" y="297" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#409eff">角色管理</text>
+    
+    <!-- 菜单管理 -->
+    <rect x="90" y="310" width="100" height="25" rx="4" fill="#f0f9ff" stroke="#409eff"/>
+    <text x="140" y="327" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#409eff">菜单管理</text>
+    
+    <!-- 部门管理 -->
+    <rect x="90" y="340" width="100" height="25" rx="4" fill="#f0f9ff" stroke="#409eff"/>
+    <text x="140" y="357" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#409eff">部门管理</text>
+    
+    <!-- 系统监控 -->
+    <rect x="90" y="370" width="100" height="25" rx="4" fill="#f0f9ff" stroke="#409eff"/>
+    <text x="140" y="387" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#409eff">系统监控</text>
+    
+    <!-- 系统工具 -->
+    <rect x="90" y="400" width="100" height="25" rx="4" fill="#f0f9ff" stroke="#409eff"/>
+    <text x="140" y="417" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#409eff">系统工具</text>
+    
+    <!-- 测试页面 -->
+    <rect x="80" y="440" width="120" height="30" rx="4" fill="#f5f7fa" stroke="#dcdfe6"/>
+    <text x="140" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#606266">测试页面</text>
+  </g>
+  
+  <!-- 主内容区域标题 -->
+  <text x="700" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#303133">主内容区域 (Router View)</text>
+  
+  <!-- 主内容区域 -->
+  <rect x="300" y="150" width="850" height="500" fill="#ffffff" stroke="#e4e7ed" stroke-width="1" rx="8"/>
+  
+  <!-- 功能页面展示 -->
+  <g id="feature-modules">
+    <!-- 首页仪表板 -->
+    <rect x="330" y="200" width="160" height="100" rx="8" fill="#409eff"/>
+    <text x="410" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">首页仪表板</text>
+    <text x="410" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(Home.vue)</text>
+    <text x="345" y="255" font-family="Arial, sans-serif" font-size="9" fill="white">• 用户统计图表</text>
+    <text x="345" y="268" font-family="Arial, sans-serif" font-size="9" fill="white">• 部门分布图表</text>
+    <text x="345" y="281" font-family="Arial, sans-serif" font-size="9" fill="white">• 系统信息展示</text>
+    <text x="345" y="294" font-family="Arial, sans-serif" font-size="9" fill="white">• 权限控制统计</text>
+    
+    <!-- 用户管理 -->
+    <rect x="510" y="200" width="160" height="100" rx="8" fill="#67c23a"/>
+    <text x="590" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">用户管理</text>
+    <text x="590" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(UserManagement.vue)</text>
+    <text x="525" y="255" font-family="Arial, sans-serif" font-size="9" fill="white">• 用户列表展示</text>
+    <text x="525" y="268" font-family="Arial, sans-serif" font-size="9" fill="white">• 用户增删改查</text>
+    <text x="525" y="281" font-family="Arial, sans-serif" font-size="9" fill="white">• 角色分配管理</text>
+    <text x="525" y="294" font-family="Arial, sans-serif" font-size="9" fill="white">• 状态管理</text>
+    
+    <!-- 角色管理 -->
+    <rect x="690" y="200" width="160" height="100" rx="8" fill="#e6a23c"/>
+    <text x="770" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">角色管理</text>
+    <text x="770" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(RoleManagement.vue)</text>
+    <text x="705" y="255" font-family="Arial, sans-serif" font-size="9" fill="white">• 角色列表管理</text>
+    <text x="705" y="268" font-family="Arial, sans-serif" font-size="9" fill="white">• 权限分配</text>
+    <text x="705" y="281" font-family="Arial, sans-serif" font-size="9" fill="white">• 角色状态控制</text>
+    <text x="705" y="294" font-family="Arial, sans-serif" font-size="9" fill="white">• 数据权限设置</text>
+    
+    <!-- 菜单管理 -->
+    <rect x="870" y="200" width="160" height="100" rx="8" fill="#f56c6c"/>
+    <text x="950" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">菜单管理</text>
+    <text x="950" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(MenuManagement.vue)</text>
+    <text x="885" y="255" font-family="Arial, sans-serif" font-size="9" fill="white">• 树形菜单结构</text>
+    <text x="885" y="268" font-family="Arial, sans-serif" font-size="9" fill="white">• 菜单层级管理</text>
+    <text x="885" y="281" font-family="Arial, sans-serif" font-size="9" fill="white">• 路由配置</text>
+    <text x="885" y="294" font-family="Arial, sans-serif" font-size="9" fill="white">• 权限控制</text>
+    
+    <!-- 部门管理 -->
+    <rect x="330" y="320" width="160" height="100" rx="8" fill="#909399"/>
+    <text x="410" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">部门管理</text>
+    <text x="410" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(DeptManagement.vue)</text>
+    <text x="345" y="375" font-family="Arial, sans-serif" font-size="9" fill="white">• 部门树形结构</text>
+    <text x="345" y="388" font-family="Arial, sans-serif" font-size="9" fill="white">• 部门层级管理</text>
+    <text x="345" y="401" font-family="Arial, sans-serif" font-size="9" fill="white">• 负责人设置</text>
+    <text x="345" y="414" font-family="Arial, sans-serif" font-size="9" fill="white">• 联系方式管理</text>
+    
+    <!-- 系统监控 -->
+    <rect x="510" y="320" width="160" height="100" rx="8" fill="#722ed1"/>
+    <text x="590" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">系统监控</text>
+    <text x="590" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(Monitor.vue)</text>
+    <text x="525" y="375" font-family="Arial, sans-serif" font-size="9" fill="white">• 系统性能监控</text>
+    <text x="525" y="388" font-family="Arial, sans-serif" font-size="9" fill="white">• 在线用户统计</text>
+    <text x="525" y="401" font-family="Arial, sans-serif" font-size="9" fill="white">• 操作日志查看</text>
+    <text x="525" y="414" font-family="Arial, sans-serif" font-size="9" fill="white">• 系统资源使用</text>
+    
+    <!-- 系统工具 -->
+    <rect x="690" y="320" width="160" height="100" rx="8" fill="#13c2c2"/>
+    <text x="770" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">系统工具</text>
+    <text x="770" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(Tool.vue)</text>
+    <text x="705" y="375" font-family="Arial, sans-serif" font-size="9" fill="white">• 代码生成器</text>
+    <text x="705" y="388" font-family="Arial, sans-serif" font-size="9" fill="white">• 数据库管理</text>
+    <text x="705" y="401" font-family="Arial, sans-serif" font-size="9" fill="white">• 系统配置</text>
+    <text x="705" y="414" font-family="Arial, sans-serif" font-size="9" fill="white">• 缓存管理</text>
+    
+    <!-- 认证页面 -->
+    <rect x="870" y="320" width="160" height="100" rx="8" fill="#fa8c16"/>
+    <text x="950" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">认证页面</text>
+    <text x="950" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">(Login/Register)</text>
+    <text x="885" y="375" font-family="Arial, sans-serif" font-size="9" fill="white">• 登录页面</text>
+    <text x="885" y="388" font-family="Arial, sans-serif" font-size="9" fill="white">• 注册页面</text>
+    <text x="885" y="401" font-family="Arial, sans-serif" font-size="9" fill="white">• 密码修改</text>
+    <text x="885" y="414" font-family="Arial, sans-serif" font-size="9" fill="white">• 路由守卫</text>
+  </g>
+  
+  <!-- 路由信息展示 -->
+  <rect x="330" y="440" width="700" height="120" rx="8" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="680" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#495057">路由配置 (router/index.js)</text>
+  
+  <text x="350" y="485" font-family="Arial, sans-serif" font-size="11" fill="#6c757d">• 根路径 '/' 重定向到 '/home'</text>
+  <text x="350" y="500" font-family="Arial, sans-serif" font-size="11" fill="#6c757d">• 认证路由: /login, /register, /login-change-password</text>
+  <text x="350" y="515" font-family="Arial, sans-serif" font-size="11" fill="#6c757d">• 主要功能路由: /home, /change-password, /system/*</text>
+  <text x="350" y="530" font-family="Arial, sans-serif" font-size="11" fill="#6c757d">• 系统管理子路由: user, role, menu, dept, monitor, tool</text>
+  <text x="350" y="545" font-family="Arial, sans-serif" font-size="11" fill="#6c757d">• 路由守卫: token验证，自动跳转逻辑</text>
+  
+  <!-- 底部状态栏 -->
+  <rect x="50" y="760" width="1100" height="30" fill="#f5f7fa" stroke="#e4e7ed"/>
+  <text x="70" y="780" font-family="Arial, sans-serif" font-size="11" fill="#909399">Vue 3 管理后台系统 v1.0.0 | 基于 Element Plus + Vue Router + ECharts</text>
+  
+  <!-- 技术特性标识 -->
+  <g id="tech-indicators">
+    <rect x="900" y="765" width="60" height="20" rx="10" fill="#67C23A" fill-opacity="0.2"/>
+    <text x="930" y="778" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#67C23A">响应式</text>
+    
+    <rect x="970" y="765" width="60" height="20" rx="10" fill="#409EFF" fill-opacity="0.2"/>
+    <text x="1000" y="778" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#409EFF">权限控制</text>
+    
+    <rect x="1040" y="765" width="60" height="20" rx="10" fill="#E6A23C" fill-opacity="0.2"/>
+    <text x="1070" y="778" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#E6A23C">国际化</text>
+  </g>
+  
+  <!-- 版本信息 -->
+  <text x="1150" y="790" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#909399">Layout v2.0</text>
+</svg>

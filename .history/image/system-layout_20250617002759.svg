@@ -1,0 +1,178 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 简化样式定义 -->
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="#f0f2f5"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#303133">后台管理系统真实布局复刻图</text>
+  
+  <!-- 主容器框架 -->
+  <rect x="50" y="50" width="1100" height="720" rx="4" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+  
+  <!-- 顶部导航栏 -->
+  <rect x="50" y="50" width="1100" height="60" fill="#ffffff" stroke="#e4e7ed" stroke-width="1"/>
+  
+  <!-- Logo区域 -->
+  <text x="70" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#409EFF">🔽 后台管理系统</text>
+  
+  <!-- 当前时间 -->
+  <text x="330" y="75" font-family="Arial, sans-serif" font-size="12" fill="#606266">当前时间：2025-06-11 14:50:24</text>
+  
+  <!-- 在线状态 -->
+  <circle cx="600" cy="72" r="4" fill="#67C23A"/>
+  <text x="615" y="75" font-family="Arial, sans-serif" font-size="12" fill="#67C23A">登录成功！欢迎您，admin（超级管理员）</text>
+  
+  <!-- 右侧功能区 -->
+  <text x="950" y="75" font-family="Arial, sans-serif" font-size="12" fill="#409EFF">中文</text>
+  <text x="990" y="75" font-family="Arial, sans-serif" font-size="12" fill="#909399">🌙 English</text>
+  <text x="1050" y="75" font-family="Arial, sans-serif" font-size="12" fill="#909399">🔍 全屏</text>
+  <text x="1090" y="75" font-family="Arial, sans-serif" font-size="12" fill="#909399">admin ⚙️</text>
+  
+  <!-- 侧边栏 -->
+  <rect x="50" y="110" width="200" height="660" fill="#2c3e50" stroke="#34495e" stroke-width="1"/>
+  
+  <!-- 侧边栏菜单项 -->
+  <g id="sidebar-menu">
+    <!-- 高级管理 -->
+    <text x="70" y="140" font-family="Arial, sans-serif" font-size="12" fill="#bdc3c7">🏠 高级管理</text>
+    
+    <!-- 系统管理 -->
+    <text x="70" y="170" font-family="Arial, sans-serif" font-size="12" fill="#bdc3c7">⚙️ 系统管理</text>
+    
+    <!-- 系统工具 -->
+    <text x="70" y="200" font-family="Arial, sans-serif" font-size="12" fill="#bdc3c7">🔧 系统工具</text>
+  </g>
+    
+  
+  <!-- 主内容区域 -->
+  <rect x="250" y="110" width="900" height="660" fill="#f5f7fa"/>
+  
+  <!-- 页面标题 -->
+  <text x="270" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#303133">欢迎使用管理系统</text>
+  
+  <!-- 统计卡片区域 -->
+  <g id="stats-cards">
+    <!-- 卡片1：用户统计 -->
+    <rect x="280" y="170" width="180" height="100" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <circle cx="320" cy="200" r="15" fill="#409EFF"/>
+    <text x="320" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">👤</text>
+    <text x="350" y="195" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#303133">5</text>
+    <text x="350" y="215" font-family="Arial, sans-serif" font-size="12" fill="#909399">用户总数</text>
+    
+    <!-- 卡片2：角色统计 -->
+    <rect x="480" y="170" width="180" height="100" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <circle cx="520" cy="200" r="15" fill="#67C23A"/>
+    <text x="520" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">🔐</text>
+    <text x="550" y="195" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#303133">5</text>
+    <text x="550" y="215" font-family="Arial, sans-serif" font-size="12" fill="#909399">角色总数</text>
+    
+    <!-- 卡片3：菜单统计 -->
+    <rect x="680" y="170" width="180" height="100" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <circle cx="720" cy="200" r="15" fill="#E6A23C"/>
+    <text x="720" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">📋</text>
+    <text x="750" y="195" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#303133">7</text>
+    <text x="750" y="215" font-family="Arial, sans-serif" font-size="12" fill="#909399">菜单总数</text>
+    
+    <!-- 卡片4：部门统计 -->
+    <rect x="880" y="170" width="180" height="100" rx="8" fill="white" stroke="#e4e7ed" stroke-width="1"/>
+    <circle cx="920" cy="200" r="15" fill="#F56C6C"/>
+    <text x="920" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">🏢</text>
+    <text x="950" y="195" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#303133">13</text>
+    <text x="950" y="215" font-family="Arial, sans-serif" font-size="12" fill="#909399">部门总数</text>
+  </g>
+  
+  <!-- 数据表格区域 -->
+  <rect x="270" y="270" width="860" height="400" rx="4" fill="white" stroke="#e4e7ed"/>
+  
+  <!-- 表格标题栏 -->
+  <rect x="270" y="270" width="860" height="40" rx="4" fill="#f5f7fa"/>
+  <line x1="270" y1="310" x2="1130" y2="310" stroke="#e4e7ed"/>
+  
+  <!-- 表格列标题 -->
+  <text x="290" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">ID</text>
+  <text x="350" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">用户名</text>
+  <text x="450" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">姓名</text>
+  <text x="550" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">邮箱</text>
+  <text x="700" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">角色</text>
+  <text x="800" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">状态</text>
+  <text x="900" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">创建时间</text>
+  <text x="1050" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#303133">操作</text>
+  
+  <!-- 表格数据行 -->
+  <g id="table-rows">
+    <!-- 第一行 -->
+    <rect x="270" y="310" width="860" height="35" fill="white"/>
+    <line x1="270" y1="345" x2="1130" y2="345" stroke="#f0f0f0"/>
+    <text x="290" y="330" font-family="Arial, sans-serif" font-size="11" fill="#606266">1</text>
+    <text x="350" y="330" font-family="Arial, sans-serif" font-size="11" fill="#606266">admin</text>
+    <text x="450" y="330" font-family="Arial, sans-serif" font-size="11" fill="#606266">管理员</text>
+    <text x="550" y="330" font-family="Arial, sans-serif" font-size="11" fill="#606266">admin@example.com</text>
+    <text x="700" y="330" font-family="Arial, sans-serif" font-size="11" fill="#606266">超级管理员</text>
+    <rect x="800" y="320" width="40" height="15" rx="2" fill="#67C23A"/>
+    <text x="815" y="330" font-family="Arial, sans-serif" font-size="9" fill="white">正常</text>
+    <text x="900" y="330" font-family="Arial, sans-serif" font-size="11" fill="#606266">2023-01-01</text>
+    <text x="1050" y="330" font-family="Arial, sans-serif" font-size="10" fill="#409EFF">编辑 删除</text>
+    
+    <!-- 第二行 -->
+    <rect x="270" y="345" width="860" height="35" fill="#fafafa"/>
+    <line x1="270" y1="380" x2="1130" y2="380" stroke="#f0f0f0"/>
+    <text x="290" y="365" font-family="Arial, sans-serif" font-size="11" fill="#606266">2</text>
+    <text x="350" y="365" font-family="Arial, sans-serif" font-size="11" fill="#606266">user001</text>
+    <text x="450" y="365" font-family="Arial, sans-serif" font-size="11" fill="#606266">张三</text>
+    <text x="550" y="365" font-family="Arial, sans-serif" font-size="11" fill="#606266">zhangsan@example.com</text>
+    <text x="700" y="365" font-family="Arial, sans-serif" font-size="11" fill="#606266">普通用户</text>
+    <rect x="800" y="355" width="40" height="15" rx="2" fill="#F56C6C"/>
+    <text x="815" y="365" font-family="Arial, sans-serif" font-size="9" fill="white">禁用</text>
+    <text x="900" y="365" font-family="Arial, sans-serif" font-size="11" fill="#606266">2023-01-02</text>
+    <text x="1050" y="365" font-family="Arial, sans-serif" font-size="10" fill="#409EFF">编辑 删除</text>
+    
+    <!-- 第三行 -->
+    <rect x="270" y="380" width="860" height="35" fill="white"/>
+    <line x1="270" y1="415" x2="1130" y2="415" stroke="#f0f0f0"/>
+    <text x="290" y="400" font-family="Arial, sans-serif" font-size="11" fill="#606266">3</text>
+    <text x="350" y="400" font-family="Arial, sans-serif" font-size="11" fill="#606266">user002</text>
+    <text x="450" y="400" font-family="Arial, sans-serif" font-size="11" fill="#606266">李四</text>
+    <text x="550" y="400" font-family="Arial, sans-serif" font-size="11" fill="#606266">lisi@example.com</text>
+    <text x="700" y="400" font-family="Arial, sans-serif" font-size="11" fill="#606266">编辑者</text>
+    <rect x="800" y="390" width="40" height="15" rx="2" fill="#67C23A"/>
+    <text x="815" y="400" font-family="Arial, sans-serif" font-size="9" fill="white">正常</text>
+    <text x="900" y="400" font-family="Arial, sans-serif" font-size="11" fill="#606266">2023-01-03</text>
+    <text x="1050" y="400" font-family="Arial, sans-serif" font-size="10" fill="#409EFF">编辑 删除</text>
+  </g>
+  
+  <!-- 分页器 -->
+  <rect x="270" y="680" width="860" height="40" rx="4" fill="white" stroke="#e4e7ed"/>
+  <text x="290" y="705" font-family="Arial, sans-serif" font-size="12" fill="#606266">共 156 条记录</text>
+  
+  <!-- 分页按钮 -->
+  <rect x="950" y="690" width="30" height="20" rx="2" fill="#f5f7fa" stroke="#dcdfe6"/>
+  <text x="960" y="703" font-family="Arial, sans-serif" font-size="10" fill="#606266">上一页</text>
+  
+  <rect x="990" y="690" width="20" height="20" rx="2" fill="#409EFF"/>
+  <text x="998" y="703" font-family="Arial, sans-serif" font-size="10" fill="white">1</text>
+  
+  <rect x="1020" y="690" width="20" height="20" rx="2" fill="#f5f7fa" stroke="#dcdfe6"/>
+  <text x="1028" y="703" font-family="Arial, sans-serif" font-size="10" fill="#606266">2</text>
+  
+  <rect x="1050" y="690" width="20" height="20" rx="2" fill="#f5f7fa" stroke="#dcdfe6"/>
+  <text x="1058" y="703" font-family="Arial, sans-serif" font-size="10" fill="#606266">3</text>
+  
+  <rect x="1080" y="690" width="30" height="20" rx="2" fill="#f5f7fa" stroke="#dcdfe6"/>
+  <text x="1090" y="703" font-family="Arial, sans-serif" font-size="10" fill="#606266">下一页</text>
+  
+  <!-- 底部状态栏 -->
+  <rect x="50" y="760" width="1100" height="30" fill="#f5f7fa" stroke="#e4e7ed"/>
+  <text x="70" y="780" font-family="Arial, sans-serif" font-size="11" fill="#909399">Vue 3 Admin System v1.5.0 | 在线用户: 128 | 系统运行时间: 15天3小时</text>
+  
+  <!-- 响应式标识 -->
+  <g id="responsive-indicators">
+    <rect x="1050" y="765" width="80" height="20" rx="10" fill="#67C23A" fill-opacity="0.2"/>
+    <text x="1090" y="778" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#67C23A">响应式布局</text>
+  </g>
+  
+  <!-- 版本信息 -->
+  <text x="1150" y="790" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#909399">Layout v1.0</text>
+</svg>

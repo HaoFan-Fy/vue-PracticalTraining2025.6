@@ -1,0 +1,136 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 定义渐变色 -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#409EFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#67C23A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+    <!-- 阴影滤镜 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000015"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="#f5f7fa"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#303133">微商城后台管理系统架构图</text>
+  
+  <!-- 技术栈标签 -->
+  <rect x="450" y="55" width="300" height="25" rx="12" fill="#e9ecef" stroke="#dee2e6" stroke-width="1"/>
+  <text x="600" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">Vue 3 + Element Plus + Vite + Pinia + ECharts</text>
+  
+  <!-- 主要布局容器 -->
+  <rect x="50" y="100" width="1100" height="650" rx="10" fill="white" stroke="#dee2e6" stroke-width="1" filter="url(#shadow)"/>
+  
+  <!-- 左侧导航区域 -->
+  <rect x="70" y="120" width="250" height="610" rx="8" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+  
+  <!-- 导航标题 -->
+  <text x="195" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#495057">侧边导航</text>
+  
+  <!-- 导航菜单项 -->
+  <rect x="90" y="170" width="210" height="40" rx="6" fill="#409EFF" stroke="#409EFF" stroke-width="1"/>
+  <rect x="95" y="175" width="30" height="30" rx="4" fill="white" fill-opacity="0.2"/>
+  <text x="110" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">📊</text>
+  <text x="140" y="195" font-family="Arial, sans-serif" font-size="14" fill="white">首页统计</text>
+  
+  <rect x="90" y="220" width="210" height="40" rx="6" fill="white" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="95" y="225" width="30" height="30" rx="4" fill="#f8f9fa"/>
+  <text x="110" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">🏷️</text>
+  <text x="140" y="245" font-family="Arial, sans-serif" font-size="14" fill="#495057">分类管理</text>
+  
+  <rect x="90" y="270" width="210" height="40" rx="6" fill="white" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="95" y="275" width="30" height="30" rx="4" fill="#f8f9fa"/>
+  <text x="110" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">📦</text>
+  <text x="140" y="295" font-family="Arial, sans-serif" font-size="14" fill="#495057">商品管理</text>
+  
+  <rect x="90" y="320" width="210" height="40" rx="6" fill="white" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="95" y="325" width="30" height="30" rx="4" fill="#f8f9fa"/>
+  <text x="110" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">📋</text>
+  <text x="140" y="345" font-family="Arial, sans-serif" font-size="14" fill="#495057">订单管理</text>
+  
+  <rect x="90" y="370" width="210" height="40" rx="6" fill="white" stroke="#e9ecef" stroke-width="1"/>
+  <rect x="95" y="375" width="30" height="30" rx="4" fill="#f8f9fa"/>
+  <text x="110" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">👥</text>
+  <text x="140" y="395" font-family="Arial, sans-serif" font-size="14" fill="#495057">用户管理</text>
+  
+  <!-- 个人中心 -->
+  <rect x="90" y="450" width="210" height="40" rx="6" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+  <text x="110" y="470" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">⚙️</text>
+  <text x="130" y="470" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">个人中心</text>
+  
+  <!-- 右侧主内容区域 -->
+  <rect x="340" y="120" width="790" height="610" rx="8" fill="white"/>
+  
+  <!-- 主内容区域标题 -->
+  <text x="735" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#495057">主内容区域 (Router View)</text>
+  
+  <!-- 功能模块展示区域 -->
+  <rect x="360" y="180" width="750" height="530" rx="6" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1"/>
+  
+  <!-- 功能模块卡片 -->
+  <rect x="380" y="200" width="140" height="120" rx="8" fill="#409EFF" filter="url(#shadow)"/>
+  <text x="450" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">首页统计</text>
+  <text x="390" y="250" font-family="Arial, sans-serif" font-size="10" fill="white">• 销售额统计</text>
+  <text x="390" y="265" font-family="Arial, sans-serif" font-size="10" fill="white">• 订单数据统计</text>
+  <text x="390" y="280" font-family="Arial, sans-serif" font-size="10" fill="white">• 实时销售展示</text>
+  <text x="390" y="295" font-family="Arial, sans-serif" font-size="10" fill="white">• ECharts图表</text>
+  <text x="390" y="310" font-family="Arial, sans-serif" font-size="10" fill="white">• 实时数据更新</text>
+  
+  <rect x="540" y="200" width="140" height="120" rx="8" fill="#67C23A" filter="url(#shadow)"/>
+  <text x="610" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">分类管理</text>
+  <text x="550" y="250" font-family="Arial, sans-serif" font-size="10" fill="white">• 树形结构展示</text>
+  <text x="550" y="265" font-family="Arial, sans-serif" font-size="10" fill="white">• 一级二级分类</text>
+  <text x="550" y="280" font-family="Arial, sans-serif" font-size="10" fill="white">• 分类图片管理</text>
+  <text x="550" y="295" font-family="Arial, sans-serif" font-size="10" fill="white">• 数据筛选控制</text>
+  <text x="550" y="310" font-family="Arial, sans-serif" font-size="10" fill="white">• 增删改查操作</text>
+  
+  <rect x="700" y="200" width="140" height="120" rx="8" fill="#E6A23C" filter="url(#shadow)"/>
+  <text x="770" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">商品管理</text>
+  <text x="710" y="250" font-family="Arial, sans-serif" font-size="10" fill="white">• 商品列表分页</text>
+  <text x="710" y="265" font-family="Arial, sans-serif" font-size="10" fill="white">• 商品详情编辑</text>
+  <text x="710" y="280" font-family="Arial, sans-serif" font-size="10" fill="white">• 图片上传预览</text>
+  <text x="710" y="295" font-family="Arial, sans-serif" font-size="10" fill="white">• 库存本地通道</text>
+  <text x="710" y="310" font-family="Arial, sans-serif" font-size="10" fill="white">• 库存价格管理</text>
+  
+  <rect x="860" y="200" width="140" height="120" rx="8" fill="#909399" filter="url(#shadow)"/>
+  <text x="930" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">订单管理</text>
+  <text x="870" y="250" font-family="Arial, sans-serif" font-size="10" fill="white">• 订单列表展示</text>
+  <text x="870" y="265" font-family="Arial, sans-serif" font-size="10" fill="white">• 状态文字显示</text>
+  <text x="870" y="280" font-family="Arial, sans-serif" font-size="10" fill="white">• 收货地址查看</text>
+  <text x="870" y="295" font-family="Arial, sans-serif" font-size="10" fill="white">• 商品图片预览</text>
+  <text x="870" y="310" font-family="Arial, sans-serif" font-size="10" fill="white">• 分页功能支持</text>
+  
+  <rect x="1020" y="200" width="140" height="120" rx="8" fill="#F56C6C" filter="url(#shadow)"/>
+  <text x="1090" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">用户管理</text>
+  <text x="1030" y="250" font-family="Arial, sans-serif" font-size="10" fill="white">• 用户信息展示</text>
+  <text x="1030" y="265" font-family="Arial, sans-serif" font-size="10" fill="white">• 关键信息显示</text>
+  <text x="1030" y="280" font-family="Arial, sans-serif" font-size="10" fill="white">• 性别信息显示</text>
+  <text x="1030" y="295" font-family="Arial, sans-serif" font-size="10" fill="white">• 用户信息编辑</text>
+  <text x="1030" y="310" font-family="Arial, sans-serif" font-size="10" fill="white">• 非必要信息隐藏</text>
+  
+  <!-- 底部技术特色标签 -->
+  <rect x="380" y="350" width="120" height="35" rx="17" fill="#e3f2fd" stroke="#2196f3" stroke-width="1"/>
+  <text x="440" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#1976d2">响应式设计</text>
+  
+  <rect x="520" y="350" width="120" height="35" rx="17" fill="#e8f5e8" stroke="#4caf50" stroke-width="1"/>
+  <text x="580" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#388e3c">模块化架构</text>
+  
+  <rect x="660" y="350" width="120" height="35" rx="17" fill="#fff3e0" stroke="#ff9800" stroke-width="1"/>
+  <text x="720" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#f57c00">数据可视化</text>
+  
+  <rect x="800" y="350" width="120" height="35" rx="17" fill="#fce4ec" stroke="#e91e63" stroke-width="1"/>
+  <text x="860" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#c2185b">权限控制</text>
+  
+  <rect x="940" y="350" width="120" height="35" rx="17" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1"/>
+  <text x="1000" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7b1fa2">性能优化</text>
+  
+  <!-- 版本信息 -->
+  <text x="1150" y="790" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#adb5bd">v3.5.0</text>
+</svg>
